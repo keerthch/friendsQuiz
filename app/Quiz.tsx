@@ -13,11 +13,23 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { levelBasedQuestions } from "../constants/questions";
 import { quotes } from "../constants/quotes"; // Import quotes
 
+type QuizType = 'single' | 'multiplayer' | 'quote';
+
 type RootStackParamList = {
   Home: undefined;
-  Quiz: { level?: number; isQuoteQuiz?: boolean };
-  Results: { score: number; total: number; level?: number; points: number };
+  Quiz: { 
+    level?: number; 
+    isQuoteQuiz?: boolean; 
+    questions?: (QuoteQuestion | LevelQuestion)[]; 
+    quizType: QuizType; // Add this property
+    roomId?: string;
+    playerName? : string;
 };
+
+  Results: { score: number; total: number; level?: number; points: number, quizType: QuizType, roomId?: string, 
+    playerName?: string, questions?: (QuoteQuestion | LevelQuestion)[];  };
+};
+
 
 type QuoteQuestion = {
   quote: string;
@@ -42,38 +54,41 @@ const characterImages: Record<"Ross" | "Chandler" | "Phoebe" | "Rachel" | "Monic
 };
 
 export default function Quiz({ route, navigation }: Props) {
-  const { level, isQuoteQuiz } = route.params;
+  const { questions: passedQuestions, level, isQuoteQuiz, quizType, roomId, playerName } = route.params;
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [points, setPoints] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [timeLeft, setTimeLeft] = useState(30);
+  const [timeLeft, setTimeLeft] = useState(10);
   const animatedProgress = useRef(new Animated.Value(1)).current;
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Function to pick 10 random quotes
   const getRandomQuotes = () => {
     const shuffledQuotes = [...quotes].sort(() => Math.random() - 0.5);
-    return shuffledQuotes.slice(0, 10);
+    return shuffledQuotes.slice(0, 6);
   };
 
-  // Questions logic (random quotes or level-based)
   const questions: (QuoteQuestion | LevelQuestion)[] = React.useMemo(() => {
+    if (passedQuestions) {
+      // Use questions passed via navigation if available
+      return passedQuestions;
+    }
+
+    // Otherwise, generate questions dynamically
     return isQuoteQuiz
       ? getRandomQuotes() // Use random quotes when isQuoteQuiz is true
       : level !== undefined
       ? levelBasedQuestions[level - 1] || []
       : [];
-  }, [level, isQuoteQuiz]);
+  }, [passedQuestions, level, isQuoteQuiz]);
 
   const totalQuestions = questions.length;
 
   useEffect(() => {
-    console.log("Timer reset for Current Question:", currentQuestion);
-
     // Start animation
     Animated.timing(animatedProgress, {
       toValue: 0,
-      duration: 30000,
+      duration: 10000,
       useNativeDriver: true,
     }).start();
 
@@ -97,9 +112,13 @@ export default function Quiz({ route, navigation }: Props) {
 
   const handleTimeout = () => {
     if (!selectedAnswer) {
-      console.log("Timeout triggered for unanswered question.");
       setSelectedAnswer(""); // Mark as unanswered
       setTimeout(() => moveToNextQuestion(false), 1000); // Move to next question after timeout
+      const current = questions[currentQuestion];
+      if (currentQuestion === totalQuestions - 1) {
+        navigateToResults(points); // Navigate with current points if wrong
+      }
+  
     }
   };
 
@@ -136,27 +155,32 @@ export default function Quiz({ route, navigation }: Props) {
     if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion((prev) => prev + 1);
       setSelectedAnswer(null);
-      setTimeLeft(30);
+      setTimeLeft(10);
       animatedProgress.setValue(1);
     }
   };
 
   const navigateToResults = async (finalPoints: number) => {
     if (!isQuoteQuiz && level !== undefined) {
-      const percentage = (finalPoints / (totalQuestions * 30)) * 100;
+      const percentage = (finalPoints / (totalQuestions * 10)) * 100;
       const savedLevels = parseInt(
         (await AsyncStorage.getItem("unlockedLevels")) || "1",
         10
       );
-      if (percentage >= 85 && level >= savedLevels) {
+      if (percentage >= 90 && level >= savedLevels) {
         await AsyncStorage.setItem("unlockedLevels", (level + 1).toString());
       }
     }
+
     navigation.navigate("Results", {
       score: finalPoints,
       total: totalQuestions,
       level,
       points: finalPoints,
+      quizType: quizType,
+      roomId: roomId,
+      playerName: playerName,
+      questions: questions
     });
   };
 

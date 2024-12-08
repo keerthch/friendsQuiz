@@ -1,14 +1,14 @@
 {
-  "react-native-google-mobile-ads":{
-      "android_app_id": "ca-app-pub-8141886191578873~8366061902",
-      "ios_app_id": "ca-app-pub-8141886191578873~8366061902"
-   },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-8141886191578873~8366061902",
+    "ios_app_id": "ca-app-pub-8141886191578873~8366061902"
+  },
   "expo": {
     "name": "Friends Quiz",
     "slug": "bingebrain",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/app_icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -18,8 +18,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/app_icon.png", 
+        "backgroundColor": "#FFFFFF"
       },
       "package": "com.bingbrain"
     },
@@ -37,8 +37,8 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      
-      "expo-tracking-transparency"
+      "expo-tracking-transparency",
+      "expo-router"
     ],
     "experiments": {
       "typedRoutes": true

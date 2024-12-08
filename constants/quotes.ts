@@ -4,10 +4,9 @@ export type Quote = {
   };
   
   export const quotes: Quote[] = [
-    { quote: "We were on a break!", correctAnswer: "Ross" },
+  { quote: "We were on a break!", correctAnswer: "Ross" },
 { quote: "I’m a gym member. I try to go four times a week, but I’ve missed the last … twelve hundred times.",  correctAnswer: "Chandler"},
 { quote: "I tend to keep talking till somebody stops me.", correctAnswer: "Chandler"},
-{ quote: "Oh, my God. I’ve become my father. I’ve been trying so hard not to become my mother, I didn’t see this coming.", correctAnswer: "Rachel" },
 { quote: "Well, maybe I don’t need your money. Wait, wait! I said, ‘Maybe.", correctAnswer: "Rachel" },
 { quote: "Should I use my invisibility to fight crime or for evil?.", correctAnswer: "Chandler"},
 { quote: "Welcome to the real world. It sucks. You’re gonna love it.", correctAnswer: "Monica" },
@@ -27,9 +26,9 @@ export type Quote = {
 { quote: "I guess I’m not gonna be the mom who makes the world’s best chocolate cookies.", correctAnswer: "Monica" },
 { quote: "I tell you, when I actually die, some people are going to get seriously haunted.", correctAnswer: "Ross" },
 { quote: "Could I be wearing any more clothes?", correctAnswer: "Joey" },
-{ quote: "Over the line? You’re so far past the line that you can’t even see the line! The line is a dot to you!", correctAnswer: "Joey" },
+{ quote: "The line is a dot to you!", correctAnswer: "Joey" },
 { quote: "I wish I could, but I don't want to.", correctAnswer: "Phoebe" },
-{ quote: "It's like all my life everyone has always told me, 'You're a shoe! You're a shoe! You're a shoe!'.", correctAnswer: "Rachel" },
+{ quote: "'You're a shoe! You're a shoe! You're a shoe!'.", correctAnswer: "Rachel" },
 { quote: "Joey doesn't share food!", correctAnswer: "Joey" },
 { quote: "Seven! Seven! Seven!", correctAnswer: "Monica" },
 { quote: "Smelly cat, smelly cat, what are they feeding you?", correctAnswer: "Phoebe" },
@@ -51,7 +50,6 @@ export type Quote = {
 { quote: "I’m fine.", correctAnswer: "Ross" },
 { quote: "I don't even have a 'pla'.", correctAnswer: "Phoebe" },
 { quote: "I KNOW! I KNOW!", correctAnswer: "Monica" },
-{ quote: "That's not even a word!", correctAnswer: "Ross" },
 { quote: "You can't just give up. Is that what a dinosaur would do?", correctAnswer: "Ross" },
 { quote: "Cheese. It’s milk that you chew.", correctAnswer: "Chandler" },
 { quote: "You are my Everest.", correctAnswer: "Chandler" },

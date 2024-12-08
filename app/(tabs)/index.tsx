@@ -3,11 +3,31 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../Home";
 import Quiz from "../Quiz";
 import Results from "../Results";
+import Multiplayer from "../Multiplayer";
+
+type QuizType = 'single' | 'multiplayer' | 'quote';
+
+type QuoteQuestion = {
+  quote: string;
+  correctAnswer: string;
+};
+
+type LevelQuestion = {
+  question: string;
+  options: string[];
+  correctAnswer: string;
+};
 
 type RootStackParamList = {
   Home: { unlockedLevel?: number };
-  Quiz: { level: number; isQuoteQuiz?: boolean };
-  Results: { score: number; total: number; level?: number; points: number };
+  Quiz : { 
+    level?: number; 
+    isQuoteQuiz?: boolean; 
+    questions?: (QuoteQuestion | LevelQuestion)[]; 
+    quizType: QuizType; // Add this property
+};
+  Multiplayer: undefined;
+  Results: { score: number; total: number; level?: number; points: number,  quizType: QuizType,  questions?: (QuoteQuestion | LevelQuestion)[]; };
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -30,25 +50,31 @@ export default function Layout() {
         name="Home" 
         component={Home} 
         options={{
-          title: "Home", // Static title for Home
-        }} 
+          headerShown: false, // Hide the header if you want a clean UI
+        }}
       />
       <Stack.Screen
         name="Quiz"
         component={Quiz}
-        options={({ route }) => ({
-          title: route.params.isQuoteQuiz
-            ? "Guess the Quote"
-            : `Level ${route.params.level}`, // Dynamic title based on level
-        })}
+        options={{
+          headerShown: false, // Hide the header if you want a clean UI
+        }}
       />
       <Stack.Screen
         name="Results"
         component={Results}
         options={{
-          title: "Results", // Static title for Results
+          headerShown: false, // Hide the header if you want a clean UI
         }}
       />
+       <Stack.Screen
+        name="Multiplayer"
+        component={Multiplayer}
+        options={{
+          headerShown: false, // Hide the header if you want a clean UI
+        }}
+      />
+      
     </Stack.Navigator>
   );
 }
