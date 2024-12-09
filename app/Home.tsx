@@ -73,7 +73,7 @@ export default function Home({ navigation }: Props) {
         setisVisible(true)
         // Fetch questions from the API
         const response = await fetch(
-          `https://z94udtqgs9.execute-api.ap-south-1.amazonaws.com/prod?level=${level}`
+          `https://cxn8d58dd1.execute-api.ap-south-1.amazonaws.com/prod?level=${level}`
         );
   
         if (!response.ok) {
@@ -164,14 +164,14 @@ export default function Home({ navigation }: Props) {
       {/* Circular Image */}
       <View style={styles.imageContainer}>
         <Image
-          source={require("../assets/images/friends.png")}
+          source={require("../assets/images/icon.png")}
           style={styles.image}
           resizeMode="cover"
         />
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Friends TV Show Quiz!</Text>
+      <Text style={styles.title}>F1 Trivia Quiz </Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>
@@ -179,7 +179,7 @@ export default function Home({ navigation }: Props) {
           style={[styles.levelButton, styles.blueButton]}
           onPress={handleGuessTheQuote}
         >
-          <Text >Guess the Quote</Text>
+          <Text >Guess the Team</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.levelButton, styles.blueButton]}
@@ -219,11 +219,11 @@ export default function Home({ navigation }: Props) {
               3. To move to the next level, you must score above 90%.
             </Text>
             <Text style={styles.modalText}>
-              4. A new set of quotes is generated every time you play "Guess the
-              Quote."
+              4. A new set of questions is generated every time you play "Guess the
+              Team."
             </Text>
             <Text style={styles.modalText}>
-              5. You can enjoy "Guess the Quote" even without an internet connection! 😊
+              5. You can enjoy "Guess the Team" even without an internet connection! 😊
             </Text>
             <TouchableOpacity
               style={styles.closeButton}

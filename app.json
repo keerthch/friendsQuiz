@@ -4,24 +4,24 @@
     "ios_app_id": "ca-app-pub-8141886191578873~8366061902"
   },
   "expo": {
-    "name": "Friends Quiz",
+    "name": "F1 Quiz",
     "slug": "bingebrain",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/app_icon.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bingbrain"
+      "bundleIdentifier": "com.bingebrain.ipl"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/app_icon.png", 
+        "foregroundImage": "./assets/images/icon.png", 
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.bingbrain"
+      "package": "com.bingebrain.ipl"
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +32,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/icon.png",
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }

@@ -1,4 +1,4 @@
-package com.bingbrain
+package com.bingebrain.ipl
 
 import android.app.Application
 import android.content.res.Configuration

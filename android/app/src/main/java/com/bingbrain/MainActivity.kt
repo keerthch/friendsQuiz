@@ -1,4 +1,4 @@
-package com.bingbrain
+package com.bingebrain.ipl
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build

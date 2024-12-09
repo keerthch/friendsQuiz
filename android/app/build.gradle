@@ -86,9 +86,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace 'com.bingbrain'
+    namespace 'com.bingebrain.ipl'
     defaultConfig {
-        applicationId 'com.bingbrain'
+        applicationId 'com.bingebrain.ipl'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
