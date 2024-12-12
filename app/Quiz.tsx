@@ -46,8 +46,8 @@ type Props = NativeStackScreenProps<RootStackParamList, "Quiz">;
 
 const characterImages: Record<"Ross" | "Chandler" | "Phoebe" | "Rachel" | "Monica" | "Joey", any> = {
   Ross: require("../assets/images/ross.png"),
-  Chandler: require("../assets/images/chandler.png"),
   Phoebe: require("../assets/images/phoebe.png"),
+  Chandler: require("../assets/images/chandler.png"),
   Rachel: require("../assets/images/rachel.png"),
   Monica: require("../assets/images/monica.png"),
   Joey: require("../assets/images/joey.png"),
@@ -216,8 +216,8 @@ export default function Quiz({ route, navigation }: Props) {
               const isCorrectAnswer = current.correctAnswer === character;
 
               return (
+                <View key={character} style={styles.characterContainer}>
                 <TouchableOpacity
-                  key={character}
                   style={[
                     styles.imageOption,
                     isSelected && !isCorrectAnswer && styles.wrongOutline,
@@ -231,6 +231,8 @@ export default function Quiz({ route, navigation }: Props) {
                     style={styles.characterImage}
                   />
                 </TouchableOpacity>
+                <Text style={styles.characterName}>{character}</Text>
+              </View>
               );
             })
           : current.options.map((option) => {
@@ -361,6 +363,15 @@ const styles = StyleSheet.create({
       fontSize: SCREEN_WIDTH * 0.04,
       color: "#fff",
       fontWeight: "bold",
+    },
+    characterContainer: {
+      alignItems: "center",
+    },
+    characterName: {
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "#fff",
+      textAlign: "center",
     },
   });
   

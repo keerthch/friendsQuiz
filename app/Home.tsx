@@ -164,14 +164,14 @@ export default function Home({ navigation }: Props) {
       {/* Circular Image */}
       <View style={styles.imageContainer}>
         <Image
-          source={require("../assets/images/friends.png")}
+          source={require("../assets/images/app_icon.png")}
           style={styles.image}
           resizeMode="cover"
         />
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Friends TV Show Quiz!</Text>
+      <Text style={styles.title}>Friends Sitcom Quiz!</Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>
