@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "FriendsQuiz.app"
-               BlueprintName = "FriendsQuiz"
-               ReferencedContainer = "container:FriendsQuiz.xcodeproj">
+               BuildableName = "F1Quiz.app"
+               BlueprintName = "F1Quiz"
+               ReferencedContainer = "container:F1Quiz.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "FriendsQuizTests.xctest"
-               BlueprintName = "FriendsQuizTests"
-               ReferencedContainer = "container:FriendsQuiz.xcodeproj">
+               BuildableName = "F1QuizTests.xctest"
+               BlueprintName = "F1QuizTests"
+               ReferencedContainer = "container:F1Quiz.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FriendsQuiz.app"
-            BlueprintName = "FriendsQuiz"
-            ReferencedContainer = "container:FriendsQuiz.xcodeproj">
+            BuildableName = "F1Quiz.app"
+            BlueprintName = "F1Quiz"
+            ReferencedContainer = "container:F1Quiz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "FriendsQuiz.app"
-            BlueprintName = "FriendsQuiz"
-            ReferencedContainer = "container:FriendsQuiz.xcodeproj">
+            BuildableName = "F1Quiz.app"
+            BlueprintName = "F1Quiz"
+            ReferencedContainer = "container:F1Quiz.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
