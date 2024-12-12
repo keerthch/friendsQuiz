@@ -208,6 +208,7 @@ export default function Quiz({ route, navigation }: Props) {
         {"quote" in current ? `"${current.quote}"` : current.question}
       </Text>
 
+      
       {/* Options */}
       <View style={styles.optionsContainer}>
         {"quote" in current
@@ -216,8 +217,8 @@ export default function Quiz({ route, navigation }: Props) {
               const isCorrectAnswer = current.correctAnswer === character;
 
               return (
+                <View key={character} style={styles.characterContainer}>
                 <TouchableOpacity
-                  key={character}
                   style={[
                     styles.imageOption,
                     isSelected && !isCorrectAnswer && styles.wrongOutline,
@@ -231,6 +232,8 @@ export default function Quiz({ route, navigation }: Props) {
                     style={styles.characterImage}
                   />
                 </TouchableOpacity>
+                <Text style={styles.characterName}>{character}</Text>
+              </View>
               );
             })
           : current.options.map((option) => {
@@ -361,6 +364,15 @@ const styles = StyleSheet.create({
       fontSize: SCREEN_WIDTH * 0.04,
       color: "#fff",
       fontWeight: "bold",
+    },
+    characterContainer: {
+      alignItems: "center",
+    },
+    characterName: {
+      fontSize: 16,
+      fontWeight: "bold",
+      color: "#fff",
+      textAlign: "center",
     },
   });
   
