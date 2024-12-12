@@ -216,7 +216,7 @@ export default function Home({ navigation }: Props) {
               points will be 10, and they decrease with time.
             </Text>
             <Text style={styles.modalText}>
-              3. To move to the next level, you must score above 90%.
+              3. To move to the next level, you must score above 85%.
             </Text>
             <Text style={styles.modalText}>
               4. A new set of quotes is generated every time you play "Guess the

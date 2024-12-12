@@ -47,7 +47,7 @@ export default function Results({ route, navigation }: Props) {
 
   // Determine the result color
   const getResultColor = () => {
-    if (percentage >= 90) return styles.resultGreen;
+    if (percentage >= 85) return styles.resultGreen;
     if (percentage > 60) return styles.resultYellow;
     return styles.resultRed;
   };
@@ -191,9 +191,9 @@ export default function Results({ route, navigation }: Props) {
       </View>
   
       {/* Unlock Next Level Message */}
-      {quizType !== "multiplayer" && percentage < 90 && (
+      {quizType !== "multiplayer" && quizType !== "quote" && percentage < 85 && (
         <Text style={styles.unlockMessage}>
-          Score greater than or equal to 90% to unlock the next level!
+          Score greater than or equal to 85% to unlock the next level!
         </Text>
       )}
   
