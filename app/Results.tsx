@@ -4,7 +4,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-3940256099942544/9214589741";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
