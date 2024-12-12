@@ -44,13 +44,13 @@ type LevelQuestion = {
 
 type Props = NativeStackScreenProps<RootStackParamList, "Quiz">;
 
-const characterImages: Record<"Mercedes" | "Alpine" | "Ferrari" | "Williams" | "Redbull" | "Mclaren", any> = {
+const characterImages: Record<"Mercedes" | "Alpine" | "Ferrari" | "Williams" | "Redbull" | "McLaren", any> = {
   Mercedes: require("../assets/images/mercedes.png"),
   Alpine: require("../assets/images/alpine.png"),
   Ferrari: require("../assets/images/ferrari.png"),
   Williams: require("../assets/images/williams.png"),
   Redbull: require("../assets/images/redbull.png"),
-  Mclaren: require("../assets/images/mclaren.png"),
+  McLaren: require("../assets/images/mclaren.png"),
 };
 
 export default function Quiz({ route, navigation }: Props) {
