@@ -12,6 +12,7 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { levelBasedQuestions } from "../constants/questions";
 import { quotes } from "../constants/quotes"; // Import quotes
+import AudioPlayer  from "./AudioPlayer"; // Import quotes
 
 type QuizType = 'single' | 'multiplayer' | 'quote';
 
@@ -32,12 +33,12 @@ type RootStackParamList = {
 
 
 type QuoteQuestion = {
-  quote: string;
+  quote: string | {audio : string};
   correctAnswer: string;
 };
 
 type LevelQuestion = {
-  question: string;
+  question: string | {audio : string};
   options: string[];
   correctAnswer: string;
 };
@@ -58,7 +59,7 @@ export default function Quiz({ route, navigation }: Props) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [points, setPoints] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(30);
   const animatedProgress = useRef(new Animated.Value(1)).current;
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -203,10 +204,33 @@ export default function Quiz({ route, navigation }: Props) {
         </View>
       </View>
 
-      {/* Question */}
-      <Text style={styles.question}>
-        {"quote" in current ? `"${current.quote}"` : current.question}
-      </Text>
+    {/* Question */}
+    {current && ("quote" in current ? (
+  // Render for QuoteQuestion
+  <View style={styles.questionContainer}>
+    {typeof current.quote === "string" ? (
+      <Text style={styles.question}>{`"${current.quote}"`}</Text>
+    ) : (
+      <View style={styles.audioQuestionContainer}>
+        <Text style={styles.audioPrompt}>Listen to the quote:</Text>
+        <AudioPlayer source={current.quote.audio} />
+      </View>
+    )}
+  </View>
+) : (
+  // Render for LevelQuestion
+  <View style={styles.questionContainer}>
+    {typeof current.question === "string" ? (
+      <Text style={styles.question}>{current.question}</Text>
+    ) : (
+      <View style={styles.audioQuestionContainer}>
+        <Text style={styles.audioPrompt}>Listen to the question:</Text>
+        <AudioPlayer source={current.question.audio} />
+      </View>
+    )}
+  </View>
+))}
+
 
       
       {/* Options */}
@@ -373,6 +397,17 @@ const styles = StyleSheet.create({
       fontWeight: "bold",
       color: "#fff",
       textAlign: "center",
+    },
+    questionContainer: {
+      margin: 16,
+    },
+    audioQuestionContainer: {
+      alignItems: 'center',
+    },
+    audioPrompt: {
+      marginBottom: 8,
+      fontSize: 16,
+      fontWeight: 'bold',
     },
   });
   

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+
 
 const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
 
@@ -199,16 +199,7 @@ export default function Results({ route, navigation }: Props) {
   
      
   
-      {/* Ad Container */}
-      <View style={styles.adContainer}>
-        <BannerAd
-          unitId={androidAdmobBanner}
-          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-          onAdFailedToLoad={(error) =>
-            console.error("Ad failed to load: ", error)
-          }
-        />
-      </View>
+     
     </View>
   );
   

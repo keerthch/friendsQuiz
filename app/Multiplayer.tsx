@@ -12,7 +12,7 @@ import {
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+
 
 const androidAdmobBanner = "ca-app-pub-3940256099942544/9214589741";
 
@@ -258,15 +258,7 @@ export default function Multiplayer({ navigation }: Props) {
       </Modal>
   
       {/* Ad Container */}
-      <View style={styles.adContainer}>
-        <BannerAd
-          unitId={androidAdmobBanner}
-          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
-          onAdFailedToLoad={(error) =>
-            console.error("Ad failed to load: ", error)
-          }
-        />
-      </View>
+      
 
        {/* Rules Modal */}
        <Modal
