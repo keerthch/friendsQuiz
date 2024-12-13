@@ -98,7 +98,14 @@ export default function Home({ navigation }: Props) {
   
 
   const handleGuessTheQuote = () => {
-    navigation.navigate("Quiz", { isQuoteQuiz: true });
+    if (unlockedLevels < 5) {
+      Alert.alert(
+        "Locked Feature",
+        "You need to unlock Level 5 to access 'Guess the Quote.'"
+      );
+    } else {
+      navigation.navigate("Quiz", { isQuoteQuiz: true });
+    }
   };
 
   const handleMultiplayer = () => {
@@ -171,7 +178,7 @@ export default function Home({ navigation }: Props) {
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Friends Sitcom Quiz!</Text>
+      <Text style={styles.title}>Sitcom Quizup!</Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>
@@ -223,7 +230,7 @@ export default function Home({ navigation }: Props) {
               Quote."
             </Text>
             <Text style={styles.modalText}>
-              5. You can enjoy "Guess the Quote" even without an internet connection! 😊
+              5. Unlock level 5 to enjoy "Guess the Quote" anytime, even without an internet connection! 😊
             </Text>
             <TouchableOpacity
               style={styles.closeButton}

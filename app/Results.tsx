@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+import {  BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+
+
 
 const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
 
 type QuizType = "single" | "multiplayer" | "quote";
+
+
 
 type RootStackParamList = {
   Home: undefined;
