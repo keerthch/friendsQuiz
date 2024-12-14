@@ -28,7 +28,7 @@
         <key>CFBundleURLSchemes</key>
         <array>
           <string>myapp</string>
-          <string>com.bingebrain.ipl</string>
+          <string>com.keerthch.ipl</string>
         </array>
       </dict>
       <dict>

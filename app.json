@@ -14,14 +14,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bingebrain.ipl"
+      "bundleIdentifier": "com.keerthch.ipl"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png", 
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.bingebrain.ipl"
+      "package": "com.keerthch.ipl"
     },
     "web": {
       "bundler": "metro",

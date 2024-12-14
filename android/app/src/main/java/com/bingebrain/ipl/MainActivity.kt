@@ -1,4 +1,4 @@
-package com.bingebrain.ipl
+package com.keerthch.ipl
 import expo.modules.splashscreen.SplashScreenManager
 
 import android.os.Build
