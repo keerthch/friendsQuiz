@@ -178,7 +178,7 @@ export default function Home({ navigation }: Props) {
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Sitcom Quizup!</Text>
+      <Text style={styles.title}>Sitcom Quiz - Friends</Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>
@@ -223,7 +223,7 @@ export default function Home({ navigation }: Props) {
               points will be 10, and they decrease with time.
             </Text>
             <Text style={styles.modalText}>
-              3. To move to the next level, you must score above 85%.
+              3. To move to the next level, you must score above 80%.
             </Text>
             <Text style={styles.modalText}>
               4. A new set of quotes is generated every time you play "Guess the

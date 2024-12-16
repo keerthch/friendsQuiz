@@ -1,20 +1,32 @@
 import React, { useEffect, useState } from "react";
-import { ActivityIndicator, View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import {  BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+import {
+  BannerAd,
+  BannerAdSize,
+  InterstitialAd,
+  AdEventType,
+} from "react-native-google-mobile-ads";
 
-
-
-const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/9045873704"; 
 
 type QuizType = "single" | "multiplayer" | "quote";
 
-
-
 type RootStackParamList = {
   Home: undefined;
-  Quiz: { level?: number; isQuoteQuiz?: boolean; questions?: (QuoteQuestion | LevelQuestion)[]; };
+  Quiz: {
+    level?: number;
+    isQuoteQuiz?: boolean;
+    questions?: (QuoteQuestion | LevelQuestion)[];
+  };
   Results: {
     score: number;
     total: number;
@@ -22,8 +34,8 @@ type RootStackParamList = {
     points: number;
     quizType: QuizType;
     roomId?: string;
-    playerName? : string;
-    questions?: (QuoteQuestion | LevelQuestion)[]; 
+    playerName?: string;
+    questions?: (QuoteQuestion | LevelQuestion)[];
   };
 };
 
@@ -40,8 +52,20 @@ type LevelQuestion = {
 
 type Props = NativeStackScreenProps<RootStackParamList, "Results">;
 
+// Initialize Interstitial Ad
+const interstitialAd = InterstitialAd.createForAdRequest(androidInterstitialAd);
+
 export default function Results({ route, navigation }: Props) {
-  const { score, total, level, points, quizType, roomId, playerName, questions} = route.params;
+  const {
+    score,
+    total,
+    level,
+    points,
+    quizType,
+    roomId,
+    playerName,
+    questions,
+  } = route.params;
 
   const [winner, setWinner] = useState<string | null>(null);
   const [players, setPlayers] = useState<{ name: string; score: number }[]>([]);
@@ -49,15 +73,33 @@ export default function Results({ route, navigation }: Props) {
 
   const percentage = Math.round((score / (total * 10)) * 100);
 
+  // Load and show Interstitial Ad
+  useEffect(() => {
+    const showAdWithProbability = () => {
+      // 50% probability to show the ad
+      if (Math.random() < 0.5) {
+        interstitialAd.load();
+        interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
+          interstitialAd.show();
+        });
+        interstitialAd.addAdEventListener(AdEventType.ERROR, (error) =>
+          console.error("Interstitial ad failed to load:", error)
+        );
+      }
+    };
+
+    // Show the ad when the Results screen is displayed
+    showAdWithProbability();
+  }, []);
+
   // Determine the result color
   const getResultColor = () => {
-    if (percentage >= 85) return styles.resultGreen;
+    if (percentage >= 80) return styles.resultGreen;
     if (percentage > 60) return styles.resultYellow;
     return styles.resultRed;
   };
 
   // Poll for winner only for multiplayer quizzes
-
   useEffect(() => {
     if (quizType !== "multiplayer" || !roomId) return;
     let interval: NodeJS.Timeout | null = null;
@@ -81,8 +123,6 @@ export default function Results({ route, navigation }: Props) {
           }
         );
 
-
-
         const data = await response.json();
 
         if (data.success) {
@@ -99,7 +139,7 @@ export default function Results({ route, navigation }: Props) {
       }
     };
 
-    // Call immediately and then every 20 seconds
+    // Call immediately and then every 15 seconds
     checkWinner();
     interval = setInterval(checkWinner, 15000);
 
@@ -109,12 +149,10 @@ export default function Results({ route, navigation }: Props) {
     };
   }, [quizType, roomId]);
 
-  
-
   return (
     <View style={styles.container}>
-       {/* Winner Announcement */}
-     {quizType === "multiplayer" && (
+      {/* Winner Announcement */}
+      {quizType === "multiplayer" && (
         <View style={styles.winnerContainer}>
           {winner ? (
             <Text style={styles.winnerText}>{`${winner} won the quiz!`}</Text>
@@ -125,53 +163,48 @@ export default function Results({ route, navigation }: Props) {
           )}
         </View>
       )}
-      {/* Single Player Mode */}
-{quizType !== "multiplayer" && (
-  <View style={styles.singlePlayerContainer}>
-    {/* Percentage Display */}
-    <View style={[styles.singlePlayerPercentageContainer, getResultColor()]}>
-      <Text style={styles.singlePlayerPercentageText}>{`${percentage}%`}</Text>
-    </View>
-    <Text style={styles.singlePlayerDetails}>{`You scored ${score} out of ${
-      total * 10
-    }`}</Text>
-  </View>
-)}
-    
 
-{/* Multiplayer Mode */}
-{quizType === "multiplayer" && players.length > 0 && (
-  <View style={styles.multiplayerContainer}>
-    {players
-      .sort((a, b) => b.score - a.score)
-      .map((player, index) => (
-        <View key={index} style={styles.multiplayerPlayerCard}>
+      {/* Single Player Mode */}
+      {quizType !== "multiplayer" && (
+        <View style={styles.singlePlayerContainer}>
           <View
-            style={[
-              styles.multiplayerPercentageContainer, // Multiplayer-specific styling
-              getResultColor(),
-            ]}
+            style={[styles.singlePlayerPercentageContainer, getResultColor()]}
           >
-            <Text style={styles.multiplayerPercentageText}>
-              {`${player.score}`}
+            <Text style={styles.singlePlayerPercentageText}>
+              {`${percentage}%`}
             </Text>
           </View>
-          <Text style={styles.multiplayerDetails}>
-            {`${player.name}`}
-          </Text>
+          <Text
+            style={styles.singlePlayerDetails}
+          >{`You scored ${score} out of ${total * 10}`}</Text>
         </View>
-      ))}
-  </View>
-)}
+      )}
 
+      {/* Multiplayer Mode */}
+      {quizType === "multiplayer" && players.length > 0 && (
+        <View style={styles.multiplayerContainer}>
+          {players
+            .sort((a, b) => b.score - a.score)
+            .map((player, index) => (
+              <View key={index} style={styles.multiplayerPlayerCard}>
+                <View
+                  style={[
+                    styles.multiplayerPercentageContainer, // Multiplayer-specific styling
+                    getResultColor(),
+                  ]}
+                >
+                  <Text style={styles.multiplayerPercentageText}>
+                    {`${player.score}`}
+                  </Text>
+                </View>
+                <Text style={styles.multiplayerDetails}>{`${player.name}`}</Text>
+              </View>
+            ))}
+        </View>
+      )}
 
-
-  
-      
-
-       {/* Buttons in a row */}
-       <View style={styles.buttonRow}>
-        {/* Back to Home */}
+      {/* Buttons */}
+      <View style={styles.buttonRow}>
         <TouchableOpacity
           style={styles.circularButton}
           onPress={() => navigation.navigate("Home")}
@@ -179,8 +212,7 @@ export default function Results({ route, navigation }: Props) {
           <Ionicons name="home" size={28} color="#fff" />
           <Text style={styles.buttonLabel}>Home</Text>
         </TouchableOpacity>
-  
-        {/* Retry Level */}
+
         <TouchableOpacity
           style={[
             styles.circularButton,
@@ -193,16 +225,7 @@ export default function Results({ route, navigation }: Props) {
           <Text style={styles.buttonLabel}>Retry</Text>
         </TouchableOpacity>
       </View>
-  
-      {/* Unlock Next Level Message */}
-      {quizType !== "multiplayer" && quizType !== "quote" && percentage < 85 && (
-        <Text style={styles.unlockMessage}>
-          Score greater than or equal to 85% to unlock the next level!
-        </Text>
-      )}
-  
-     
-  
+
       {/* Ad Container */}
       <View style={styles.adContainer}>
         <BannerAd
@@ -215,8 +238,6 @@ export default function Results({ route, navigation }: Props) {
       </View>
     </View>
   );
-  
-   
 }
 
 const styles = StyleSheet.create({
