@@ -5,45 +5,42 @@ export type Quote = {
   
   export const quotes: Quote[] = [
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
+      correctAnswer: "1989",
+    },
+    {
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
       correctAnswer: "Rain",
     },
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
-      correctAnswer: "Rain",
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
+      correctAnswer: "1989",
     },
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
       correctAnswer: "Rain",
+    },{
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
+      correctAnswer: "1989",
     },
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
       correctAnswer: "Rain",
+    },{
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
+      correctAnswer: "1989",
     },
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
       correctAnswer: "Rain",
+    },{
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
+      correctAnswer: "1989",
     },
     {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
+      quote: { audio: "https://swiftie-quizup.s3.ap-south-1.amazonaws.com/Blankspce.mp3" },
       correctAnswer: "Rain",
     },
-    {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
-      correctAnswer: "Rain",
-    },
-    {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
-      correctAnswer: "Rain",
-    },
-    {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
-      correctAnswer: "Rain",
-    },
-    {
-      quote: { audio: "https://www.soundjay.com/nature/sounds/rain-01.mp3" },
-      correctAnswer: "Rain",
-    }
 
 
   ];
