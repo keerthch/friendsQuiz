@@ -1,12 +1,12 @@
 {
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8141886191578873~8366061902",
-    "ios_app_id": "ca-app-pub-8141886191578873~1647129364"
+    "android_app_id": "ca-app-pub-8141886191578873~4096266529",
+    "ios_app_id": "ca-app-pub-8141886191578873~4096266529"
   },
   "expo": {
-    "name": "Friends Quiz",
+    "name": "IPL Quiz",
     "slug": "bingebrain",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app_icon.png",
     "scheme": "myapp",
@@ -14,14 +14,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bingbrain"
+      "bundleIdentifier": "com.keerthch.ipl"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app_icon.png", 
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.bingbrain"
+      "package": "com.keerthch.ipl"
     },
     "web": {
       "bundler": "metro",

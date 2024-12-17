@@ -1,0 +1,1430 @@
+  100  npm run dev
+  101  git status
+  102  git add .
+  103  git commit -m "Modularise components and add companies page"
+  104  git push origin main
+  105  npm run build
+  106  npm run build
+  107  ls
+  108  cd src/
+  109  ls
+  110  cd ..
+  111  npm run build
+  112  npm run dev
+  113  git status
+  114  git add .
+  115  git status
+  116  git commit -m "Remove duplicate files"
+  117  git push origin main
+  118  npm run build
+  119  ls
+  120  cd dist
+  121  ls
+  122  cd assets
+  123  ls
+  124  cd ..
+  125  ls
+  126  cd ..
+  127  kls
+  128  npm run dev
+  129  npm run dev
+  130  ls
+  131  curl -X POST http://your_flask_server_endpoint/traffic_fine_check \\n-H "Content-Type: application/json" \\n-d '{"vehicleId": "KA03MU8283"}'\n
+  132  curl -X POST "https://www.karnatakaone.gov.in/PoliceCollectionOfFine/FineDetails?SearchBy=REGNO&SearchValue=KA03MU8283&ServiceCode=BPS" \\n-H "Content-Type: application/json"\n
+  133  curl -X POST "https://www.karnatakaone.gov.in/PoliceCollectionOfFine/FineDetails?SearchBy=REGNO&SearchValue=KA03MU8283&ServiceCode=BPS" \\n-H "Content-Type: application/json" \\n-H "Content-Length: 0"\n
+  134  curl -X GET "https://kar-traffic-fines.herokuapp.com/fines?registration=KA03MU8283"\n
+  135  curl -X GET "https://kspapp.ksp.gov.in/ksp/api/traffic-challan?registration=KA03MU8283"\n
+  136  npm run dev
+  137  LS
+  138  vim .env
+  139  npm run build
+  140  npm run dev
+  141  ls
+  142  ls
+  143  vim .env
+  144  ls
+  145  ls -ltr
+  146  vim .env
+  147  ls
+  148  ls -ltr
+  149  cd ..
+  150  ls
+  151  cd solve-coding
+  152  ls
+  153  vim .env
+  154  npm run dev
+  155  npm run build
+  156  npm run build
+  157  npm run dev
+  158  ls
+  159  cd ls
+  160  ls
+  161  cd dist
+  162  ls
+  163  cd logo
+  164  ls
+  165  cd ..
+  166  ls
+  167  cd ..
+  168  ls
+  169  npm run dev
+  170  npm run build
+  171  npm run build
+  172  npm run build
+  173  npm run dev
+  174  npm run dev
+  175  npm run build
+  176  npm run dev
+  177  ls
+  178  cd ..
+  179  ls
+  180  ls
+  181  cd ..
+  182  ls
+  183  cd solvecoding
+  184  ls
+  185  cd ..
+  186  mkdir payscaleindia
+  187  cd payscaleindia
+  188  ls
+  189  ls
+  190  ls
+  191  cd ..
+  192  mkdir payscale
+  193  ls
+  194  cd payscale
+  195  ls
+  196  ls
+  197  ls
+  198  ls
+  199  npm create vite@latest
+  200  ls
+  201  cd payscale
+  202  ls
+  203  npm run dev
+  204  npm install
+  205  npm run dev
+  206  npm install
+  207  npm install --save-dev @types/styled-components-react-native
+  208  npm run dev
+  209  npm run build
+  210  npm install styled-components
+  211  npm run dev
+  212  npm install string-similarity\n
+  213  npm i --save-dev @types/string-similarity
+  214  ls
+  215  cd ..
+  216  ls
+  217  cd ..
+  218  ls
+  219  cd solvecoding
+  220  ls
+  221  cd solve-coding
+  222  ls
+  223  npm run dev
+  224  npm install react-router-dom\n
+  225  npm run dev
+  226  npm run build
+  227  npm run build
+  228  npm run build
+  229  ls
+  230  cd ..
+  231  ls
+  232  cd ..
+  233  ls
+  234  cd payscale
+  235  ls
+  236  cd payscale
+  237  l
+  238  npm run dev
+  239  cd ..
+  240  ls
+  241  cd ..
+  242  ls
+  243  cd solvecoding
+  244  ls
+  245  cd solve-coding
+  246  npm run dev
+  247  ls
+  248  cd ..
+  249  ls
+  250  cd ..
+  251  ls
+  252  mkdir solved
+  253  ls
+  254  cd solve
+  255  ls
+  256  cd solved
+  257  ls
+  258  vim manifest.json
+  259  vim background.js
+  260  vim content.js
+  261  vim manifest.json
+  262  vim manifest.json
+  263  vim manifest.json
+  264  vim background.js
+  265  vim manifest.json
+  266  npm install --save-dev @types/chrome
+  267  ls
+  268  cd ..
+  269  ls
+  270  cd solve
+  271  cd solvecoding
+  272  ls
+  273  cd solve-coding
+  274  npm install --save-dev @types/chrome
+  275  npm run dev
+  276  ls
+  277  ls
+  278  npm run dev
+  279  npm run dev
+  280  npm run build
+  281  npm run build
+  282  npm run dev
+  283  git status
+  284  git add ./
+  285  git sttaus
+  286  git status
+  287  git commit -m "Latest updated"
+  288  git log
+  289  git push origin main
+  290  npm run dev
+  291  npm run build
+  292  npm run dev
+  293  ls
+  294  cd ..
+  295  ls
+  296  cd ,,
+  297  cd ..
+  298  ls
+  299  cd bingebrain
+  300  ls
+  301  cd bingebrain
+  302  ls
+  303  npm run
+  304  expo run:android
+  305  npm expo run:android
+  306   expo run:android\n
+  307   expo run:android\n
+  308   expo run:android\n
+  309   /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator
+  310   /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator --help
+  311  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -avd tab
+  312  emulator -list-avds
+  313  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  314  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  315  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -avd Pixel_Fold_API_35
+  316  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  317  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  318  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -avd Pixel_Tablet_API_35
+  319  history
+  320  history 100
+  321  history 1000
+  322  history 300
+  323  history 1000 > a
+  324  history 500 > a
+  325  history 300 > a
+  326  vim a
+  327  git push origin main
+  328  emulator -list-avds
+  329  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  330  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -avd Pixel_Fold_API_35
+  331  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -list-avds
+  332  /Users/keerthanchidanand/Library/Android/sdk/emulator/emulator -avd Pixel_Tablet_API_35
+  333  ls
+  334  cd Desktop
+  335  ls
+  336  cd solvecoding
+  337  ls
+  338  mkdir razorpay-lambda\ncd razorpay-lambda
+  339  ls
+  340  npm init -y
+  341  npm install razorpay\n
+  342  ls
+  343  touch index.js\n
+  344  ls
+  345  npm run build
+  346  ls
+  347  npm run
+  348  ls
+  349  cd ..
+  350  ls
+  351  cd razorpay-lambda
+  352  ls
+  353  npm build
+  354  npm run
+  355  npm run index.js
+  356  cd ..
+  357  ls
+  358  cd razorpay-lambda
+  359  ls
+  360  zip -r lambda-function.zip .\n
+  361  ls
+  362  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  363  zip -r lambda-function.zip .\n
+  364  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  365  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  366  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  367  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  368  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  369  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  370  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  371  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  372  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  373  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  374  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  375  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  376  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  377  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  378  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  379  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123", "jwtToken": "eyJraWQiOiJZcGFEZjNxKzJNRlwvZDdHbWdXS0JNTHBRRVp1aWFldWJHTUxaRjVDakZHbz0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIzMWIzZGQyYS0yMGIxLTcwNzYtNDBlMi0yYTVjODFkMzA3YTkiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZ2VuZGVyIjoiTWFsZSIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC5hcC1zb3V0aC0xLmFtYXpvbmF3cy5jb21cL2FwLXNvdXRoLTFfY2Raa2JlMTJSIiwiY29nbml0bzp1c2VybmFtZSI6InNvbHZlQ29kaW5nQXV0aENsaWVudCIsIm9yaWdpbl9qdGkiOiJmNGEwYzMyNy1mZGJjLTQ2NDgtYjBmNC1iNzU1OTJjZTMyMzkiLCJhdWQiOiI0NTBpZWRtb3Vya2ticjAxNmMyZGQ0M3BmNCIsImV2ZW50X2lkIjoiMmIyMjQyNTYtOTFkYy00NDEyLWExNjgtYjM2OTgyNDQzMGViIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE3MzAxOTExMTIsImV4cCI6MTczMDE5NDcxMiwiaWF0IjoxNzMwMTkxMTEyLCJqdGkiOiJhMzBhZGQ3OS1jZmRkLTRmOWItYjZjOS05OGRhNzIxM2QzYmMiLCJlbWFpbCI6IiBzb2x2ZS5jb2RpbmdnQGdtYWlsLmNvbSJ9.s3Tmb1-J2O5YJ6aXOqkpO0BCHZUC6q5KOe-m3y7WBzK8BclEsKOG5IzJF6wwT4aA767EtX-z2AXZ7-4D2TWNEuxQ5D6v5xY4kSTqbX1_9E8t0VMOZaan1mcwRPtC_GB-ZpAX0zP2UzMAfUZWDCSHZjMPQ90a5rI1jfsArh8rff-PYZMHTv4J0h3Eih65kJrEghoYq_r1Dc32IQ42IIHq4nEbTjr2MijEd5klr3d2VcCgqTQRyHs1Zm5BIAQxCQX6irUt6OHbFck608RT2nO_QiV8xaRPJDGxs6Tld7Ka1Ywu64_4Nv2d7Wr540qRNHgs-xYpbuQfPEoin-7MQSXrkA"}'
+  380  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  381  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  382  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  383  curl -X POST https://2tkrvm0rod.execute-api.ap-south-1.amazonaws.com/dev/create-order \\n-H "Content-Type: application/json" \\n-d '{"amount": 50000, "currency": "INR", "receipt": "receipt123"}'
+  384   /Users/keerthanchidanand/Library/Android/sdk/platform-tools/adb install /Users/keerthanchidanand/Desktop/bingebrain/bingebrain/build-1733233531205.apk
+  385  cd ../
+  386  ls
+  387  cd ../
+  388  ls
+  389  cd ..
+  390  ls
+  391  cd Downloads
+  392  rm ipl.png
+  393  magick ipl_icon.webp ipl.png
+  394  cd ..
+  395  ls
+  396  cd Desktop/bingebrain
+  397  magick ipl_icon.webp ipl.png
+  398  ls
+  399  cd ipl
+  400  magick ipl_icon.webp ipl.png
+  401  source
+  402  source bash
+  403  source ~/.zshrc
+  404  magick ipl_icon.webp ipl.png
+  405  curl -u [YOUR_KEY_ID]:[YOUR_KEY_SECRET] \\n-X POST https://api.razorpay.com/v1/orders \\n-H "content-type: application/json" \\n-d '{\n  "amount": 50000,\n  "currency": "INR",\n  "receipt": "receipt#1",\n  "notes": {\n    "key1": "value3",\n    "key2": "value2"\n  }\n}'
+  406  curl -u rzp_live_faFi0N9bmUyd8s:Wk2iJ7OUa2qH2UY3oCE8POtg \\n-X POST https://api.razorpay.com/v1/orders \\n-H "content-type: application/json" \\n-d '{\n  "amount": 50000,\n  "currency": "INR",\n  "receipt": "receipt#1",\n  "notes": {\n    "key1": "value3",\n    "key2": "value2"\n  }\n}'
+  407  curl -X OPTIONS "https://u2ie1dreek.execute-api.ap-south-1.amazonaws.com/dev?userId=keertch" \\n-H "Access-Control-Request-Method: GET" \\n-H "Access-Control-Request-Headers: Content-Type" \\n-H "Origin: http://localhost:5173" \\n-v\n
+  408  curl -X GET "https://u2ie1dreek.execute-api.ap-south-1.amazonaws.com/dev?userId=keertch" \\n-H "Content-Type: application/json" \\n-H "Origin: http://localhost:5173" \\n-v\n
+  409  curl -X OPTIONS "https://u2ie1dreek.execute-api.ap-south-1.amazonaws.com/dev?userId=keertch" \\n-H "Access-Control-Request-Method: GET" \\n-H "Access-Control-Request-Headers: Content-Type" \\n-H "Origin: http://localhost:5173" \\n-v\n
+  410  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outloo.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  411  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outloo.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  412  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outloo.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  413  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outloo.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  414  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outloo.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  415  curl -X POST  https://d0j5teqzoa.execute-api.ap-south-1.amazonaws.com/dev \\n-H "Content-Type: application/json" \\n-d '{\n    "userId": "keerthch@outlook.com",\n    "college": "Manipal",\n    "company": "Google",\n    "name": "Keerthan",\n    "password": "None@5858"\n}'\n
+  416  nslookup -type=NS solvecoding.com
+  417  nslookup -type=CNAME ewjqmho2qvxkyccjvqai2zp72xphm5zv._domainkey.solevcoding.com solvecoding.com
+  418  nslookup -type=CNAME ewjqmho2qvxkyccjvqai2zp72xphm5zv._domainkey.solevcoding.com solvecoding.com
+  419  nslookup -type=CNAME ewjqmho2qvxkyccjvqai2zp72xphm5zv._domainkey.solevcoding.com ns15.domaincontrol.com
+  420  nslookup -type=CNAME ewjqmho2qvxkyccjvqai2zp72xphm5zv._domainkey.solevcoding.com ns15.domaincontrol.com
+  421  nslookup -type=NS solevcoding.com\n
+  422  nslookup -type=NS solevcoding.com\n
+  423  nslookup -type=NS solvecoding.com\n
+  424  nslookup -type=CNAME 526lvrsocnfpka3uazlmxnb45jl4jzbw._domainkey.solvecoding.com
+  425  nslookup -type=NS solvecoding.com
+  426  nslookup -type=NS solvecoding.com
+  427  nslookup -type=NS solvecoding.com
+  428  nslookup -type=NS solvecoding.com
+  429  nslookup -type=NS solvecoding.com
+  430  nslookup -type=NS solvecoding.com
+  431  sudo killall -HUP mDNSResponder
+  432  nslookup -type=NS solvecoding.com
+  433  nslookup -type=NS solvecoding.com
+  434  sudo dscacheutil -flushcache
+  435  sudo killall -HUP mDNSResponder
+  436  nslookup -type=NS solvecoding.com
+  437  nslookup -type=NS solvecoding.com
+  438  nslookup -type=NS solvecoding.com
+  439  nslookup -type=NS solvecoding.com
+  440  nslookup -type=NS solvecoding.com
+  441  nslookup -type=NS solvecoding.com
+  442  nslookup -type=NS solvecoding.com
+  443  nslookup -type=NS solvecoding.com
+  444  nslookup -type=NS solvecoding.com
+  445  nslookup -type=NS solvecoding.com
+  446  nslookup -type=NS solvecoding.com
+  447  nslookup -type=NS solvecoding.com
+  448  sudo killall -HUP mDNSResponder
+  449  sudo dscacheutil -flushcache
+  450  nslookup -type=NS solvecoding.com
+  451  ls
+  452  cd Desktop
+  453  ls
+  454  mkdir bingebrain
+  455  cd bingebrain
+  456  npx expo-cli init bingebrain
+  457  ;s
+  458  ls
+  459  ls
+  460  npx create-expo-app bingebrain
+  461  ls
+  462  cd bingebrain
+  463  ls
+  464  npm run android
+  465  ls
+  466  npm start
+  467  brew install watchman\n
+  468  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n
+  469  export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"\n
+  470  source ~/.zshrc\n
+  471  brew --version\n
+  472  brew install watchman\n
+  473  npm start
+  474  ulimit -n 8192\n
+  475  npm start
+  476  npm install @react-navigation/stack\n
+  477  npm install react-native-gesture-handler react-native-screens react-native-safe-area-context react-native-reanimated react-native-get-random-values\n
+  478  expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context react-native-get-random-values\n
+  479  expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context react-native-get-random-values\n
+  480  npm install --save-dev @types/react @types/react-native\n
+  481  npm install --save-dev @types/react @types/react-native\n
+  482  npm install --save-dev @types/react @types/react-native\n
+  483  npm start
+  484  npm start
+  485  npm install @react-native-async-storage/async-storage\n
+  486  npm start
+  487  npm start
+  488  npm start
+  489  npm start
+  490  npm start
+  491  npm start
+  492  npm start
+  493  npm start
+  494  npm start
+  495  npm start
+  496  npm start
+  497  npm start
+  498  npm start
+  499  npm start
+  500  npm start
+  501  npm start
+  502  npm start
+  503  expo doctor
+  504  npm install -g expo-cli\n
+  505  sudo npm install -g expo-cli
+  506  expo doctor\n
+  507  expo build:android\n
+  508  npm start
+  509  npm start
+  510  npm start
+  511  npm run
+  512  npm start
+  513  npm install -g expo-cli\n
+  514  sudo npx expo-cli --version\n
+  515  expo login\n
+  516  expo login\n
+  517  eas build:configure\n
+  518  npm install -g eas-cli\n
+  519  sudo npm install -g eas-cli\n
+  520  npm install -g eas-cli\n
+  521  eas build:configure\n
+  522  eas build -p android --profile preview\n
+  523  file assets/images/ross.png
+  524  mv assets/images/ross.png assets/images/ross.webp
+  525  convert assets/images/ross.webp assets/images/ross.png\n
+  526  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n
+  527  brew install imagemagick\n
+  528  convert assets/images/ross.webp assets/images/ross.png\n
+  529  magick assets/images/ross.webp assets/images/ross.png     
+  530  file assets/images/ross.png
+  531  rm assets/images/ross.webp
+  532  ls
+  533  mv assets/images/chandler.png assets/images/chandler.webp
+  534  mv assets/images/phoebe.png assets/images/phoebe.webp
+  535  mv assets/images/rachel.png assets/images/rachel.webp
+  536  mv assets/images/monica.png assets/images/monica.webp
+  537  mv assets/images/joey.png assets/images/joey.webp
+  538  ls assets/images
+  539  file assets/images/friends.png
+  540  mv assets/images/friends.png assets/images/friends.webp
+  541  magick assets/images/joey.webp assets/images/joey.png
+  542  magick assets/images/friends.webp assets/images/friends.png
+  543  magick assets/images/rachel.webp assets/images/rachel.png
+  544  magick assets/images/chandler.webp assets/images/chandler.png
+  545  magick assets/images/monica.webp assets/images/monica.png
+  546  magick assets/images/phoebe.webp assets/images/phoebe.png
+  547  rm assets/images/joey.webp
+  548  rm assets/images/*.webp
+  549  ls assets/images
+  550  eas build -p android\n
+  551  rm assets/images/icon.png
+  552  eas build -p android --profile preview\n
+  553  npm start
+  554  magick assets/images/icon.webp assets/images/icon.png
+  555  npm start
+  556  npm start
+  557  npm start
+  558  eas build -p android --profile preview\n
+  559  eas build -p android\n
+  560  npm start
+  561  eas build -p android\n
+  562  npm start
+  563  eas build -p android --profile preview\n
+  564  npm start
+  565  npm start
+  566  npm start
+  567  eas build -p android --profile preview\n
+  568  npm install react-native-google-mobile-ads\nnpx pod-install\n
+  569  expo install expo-ads-admob\n
+  570  npm run
+  571  npm start
+  572  npm start
+  573  npx react-native run-android\nnpx react-native run-ios\n
+  574  expo install expo-ads-admob\n
+  575  npm start
+  576  npm start
+  577  expo install react-native-google-mobile-ads\n
+  578  npm start
+  579  npm start
+  580  npm install react-native-google-mobile-ads\n
+  581  npm install react-native-google-mobile-ads\n
+  582  npm start
+  583  npx expo run:android
+  584  npx expo run:android
+  585  npm start
+  586  npm install expo-ads-admob\n
+  587  npm install react-native-google-mobile-ads
+  588  expo install expo-tracking-transparency\n
+  589  npm start
+  590  npx expo run:android
+  591  eas build -p android --profile preview\n
+  592  eas build -p android --profile preview\n
+  593  npm run
+  594  npm start
+  595  eas build
+  596  eas build
+  597  npm install react-native-google-mobile-ads
+  598  npx expo prebuild
+  599  npx expo prebuild
+  600  npx expo prebuild
+  601  npm start
+  602  npm instal expo-dev-client\n
+  603  eas build --platform android --profile development --local
+  604  eas build --platform android --profile development --local
+  605  eas build --platform android --profile development --local
+  606  brew install openjdk@17\n
+  607  sudo apt update\nsudo apt install openjdk-17-jdk\n
+  608  export JAVA_HOME=$(/usr/libexec/java_home)\nexport PATH=$JAVA_HOME/bin:$PATH\n
+  609  source ~/.zshrc  # or ~/.bashrc\n
+  610  java -version\n
+  611  source ~/.zshrc  # or ~/.bashrc\n
+  612  export JAVA_HOME=$(/usr/libexec/java_home)\nexport PATH=$JAVA_HOME/bin:$PATH\n
+  613  echo $JAVA_HOME\n
+  614  export JAVA_HOME=$(/usr/libexec/java_home)\nexport PATH=$JAVA_HOME/bin:$PATH\n
+  615  sudo apt update\nsudo apt install openjdk-17-jdk\n
+  616  brew install openjdk@17\n
+  617    echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"' >> ~/.zshrc
+  618  echo $JAVA_HOME\n
+  619  source ~/.zshrc  # or ~/.bashrc\n
+  620  java -version\n
+  621  eas build --platform android --profile development --local
+  622  export ANDROID_HOME=/Users/yourname/Library/Android/sdk\nexport PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH\n
+  623  source ~/.zshrc\n
+  624  eas build --platform android --profile development --local
+  625  /Users/keerthanchidanand/Library/Android/sdk
+  626  export ANDROID_HOME=/Users/keerthanchidanand/Library/Android/sdk
+  627  export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+  628  source ~/.zshrc\n
+  629  eas build --platform android --profile development --local
+  630  eas build --platform android --profile development --local
+  631  eas build --platform android --profile development --local
+  632  npm run
+  633  npm start
+  634  npm start
+  635  eas build --platform android --profile development --local
+  636  eas build --platform android --profile development --local
+  637  npm start
+  638  npx expo start --dev-client
+  639  eas build --profile development --platform android
+  640  npm start
+  641  npm start
+  642  npm start
+  643  npm start
+  644  eas build --platform android\n
+  645  eas build --platform android\n
+  646  npm run\n
+  647  npm start
+  648  eas build --platform android --profile development --local
+  649  /Users/keerthanchidanand/Library/Android/sdk/platform-tools/adb install /Users/keerthanchidanand/Desktop/bingebrain/bingebrain/build-1733233531205.apk\n
+  650  npm start
+  651  npm start
+  652  npm start
+  653  npm start
+  654  npm start
+  655  ls
+  656  cd ..
+  657  ls
+  658  ls
+  659  cd ..
+  660  ls
+  661  cd bingebrain
+  662  git init
+  663  ls
+  664  cd status
+  665  ls
+  666  git status
+  667  git bingebrain
+  668  cd bingebrain
+  669  git status
+  670  git add --all
+  671  git commit -m "Friends Quiz initial commit"
+  672  git push origin mainline
+  673  ls
+  674  git push origin
+  675  git push --set-upstream origin main\n
+  676  git push --set-upstream origin main\n
+  677  git remote add origin https://github.com/keerthch/friendsQuiz.git\ngit branch -M main\ngit push -u origin main
+  678  git remote set-url origin https://keerthch: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@github.com/keerthch/friendsQuiz.git\n
+  679  git remote add origin https://github.com/keerthch/friendsQuiz.git\ngit branch -M main\ngit push -u origin main
+  680  git status
+  681  ks
+  682  ls
+  683  ls
+  684  cd ..
+  685  git status
+  686  ls -ltr
+  687  cd bingebrain
+  688  ls -ltr
+  689  rm build-1733233531205.apk
+  690  rm build-1733228913107.apk
+  691  git status
+  692  git add --all
+  693  git commit --amend
+  694  git push -u origin main
+  695  cd ..
+  696  ls
+  697  mkdir ipl
+  698  ls
+  699  cd ipl
+  700  ls
+  701  cd bi
+  702  expo init IPLQuiz\n
+  703  npm install react-navigation react-navigation-stack react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated\n
+  704  npm install @react-navigation/native-stack\n
+  705  npm install @react-native-async-storage/async-storage
+  706  ls
+  707  cd IPLQuiz
+  708  ls
+  709  cd ..
+  710  ls
+  711  cd ..
+  712  ls
+  713  cd ipl
+  714  ls
+  715  cd IPLQuiz
+  716  LS
+  717  cp ../../bingebrain/constants ./
+  718  ls
+  719  mkdir constants
+  720  cp -r ../../bingebrain/constants constants
+  721  npm install @react-native-google-mobile-ads
+  722  npm install @react-native-google-mobile-ads
+  723  LS
+  724  npm install @react-navigation/native-stack react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated\n
+  725  npm start --reset-cache\n
+  726  LS
+  727  CD ,,
+  728  LS
+  729  cd ..
+  730  rm -rf IPLQuiz
+  731  expo init IPLQuiz\n
+  732  npm start
+  733  ls
+  734  cd IPLQuiz
+  735  npm start
+  736  ls
+  737  cd ..
+  738  ls
+  739  cd ..
+  740  ls
+  741  cd ipl
+  742  ls
+  743  cd ..
+  744  ls
+  745  rm -rf ipl
+  746  l
+  747  ls
+  748  mkdir ipl
+  749  cd ipl
+  750  ls
+  751  expo init IPLQuiz\n
+  752  cd IPLQuiz
+  753  npm start
+  754  npm install @expo/metro-runtime\n
+  755  expo doctor\n
+  756  npm start
+  757  npm list @expo/metro-runtime\n
+  758  npm start
+  759  npm install -g expo-cli\n
+  760  sudo npm install -g expo-cli     \n
+  761  npm start
+  762  sudo npm install expo @expo/metro-runtime react react-dom react-native react-native-web\n
+  763  expo prebuild\n
+  764  npm start
+  765  npm -i @react-native-async-storage/async-storage
+  766  npm install @react-native-async-storage/async-storage
+  767  npm install react-native-google-mobile-ads
+  768  npm install expo-tracking-transparency
+  769  npm start
+  770  ls
+  771  cd assets
+  772  ls
+  773  mv fonts/images im
+  774  ls
+  775  cd im
+  776  ls
+  777  cd ..
+  778  mv im images/
+  779  ls
+  780  npm start
+  781  npm start
+  782  eas build --platform android --profile development --local
+  783  npm install expo-dev-client\n
+  784  eas build --platform android --profile development --local
+  785  export NODE_ENV=development\n
+  786  NODE_ENV=development\n
+  787  npm install dotenv\n
+  788  eas build --platform android --profile development --local
+  789  eas build --platform android --profile development --local
+  790  cd ..
+  791  ls
+  792  eas build --platform android --profile development --local
+  793  ls
+  794  cd ..
+  795  ls
+  796  cd IPLQuiz
+  797  eas build --platform android --profile development --local
+  798  cd ..
+  799  ls
+  800  cd ..
+  801  ls
+  802  rm -rf ipl
+  803  ls
+  804  mkdir ipl
+  805  expo init IPLQuiz\n
+  806  npm install @expo/metro-runtime\n
+  807  history 100
+  808  npm start
+  809  ls
+  810  cd ipl
+  811  ls
+  812  ls
+  813  ls
+  814  cd ..
+  815  ls
+  816  cd ipl
+  817  ls
+  818  ls
+  819  cd ..
+  820  ls
+  821  cd IPLQuiz
+  822  ls
+  823  npm install @expo/metro-runtime\n
+  824  npm start
+  825  npm install @babel/runtime
+  826  npm start
+  827  ls
+  828  cd ..
+  829  ls
+  830  cd ipl/ls
+  831  cd ipl
+  832  ls
+  833  expo init IPL Quiz\n
+  834  npm start
+  835  ls
+  836  cd IPL
+  837  npm start
+  838  npm install @react-navigation/native-stack
+  839  npm install @react-native-async-storage/async-storage
+  840  npm start
+  841  npm install expo-font\n
+  842  npm start
+  843  expo start --clear\n
+  844  expo doctor --fix-dependencies\n
+  845  expo install @react-native-async-storage/async-storage\n
+  846  expo start --clear\n
+  847  npm start
+  848  expo start --clear\n
+  849  npm install -g expo-cli\n
+  850  sudo npm install -g expo-cli
+  851  expo start --clear
+  852  expo --version\n
+  853  expo upgrade\n
+  854  npm install @react-navigation/native-stack
+  855  npm start
+  856  npm start
+  857  npm start
+  858  npm start
+  859  npm start
+  860  npm start
+  861  npm start
+  862  npm install react-native-google-mobile-ads
+  863  npm start
+  864  npm start
+  865  npm start
+  866  npm install @react-native-firebase/app @react-native-firebase/admob\n
+  867  npm start
+  868  npx expo run:android
+  869  npm install @react-native-firebase/admob@latest @react-native-firebase/app@latest\nnpm install @react-native-firebase/admob@latest @react-native-firebase/app@latest\n
+  870  npm install @react-native-firebase/admob@11.5.0 @react-native-firebase/app@11.5.0\n
+  871  npm install @react-native-firebase/admob@latest @react-native-firebase/app@latest --legacy-peer-deps\n
+  872  npm install\n
+  873  npm uninstall @react-native-firebase/app @react-native-firebase/admob\n
+  874  npm install\n
+  875  npm install @react-native-firebase/admob@latest @react-native-firebase/app@latest\nnpm install @react-native-firebase/admob@latest @react-native-firebase/app@latest\n
+  876  npm install\n
+  877  npx expo run:android
+  878  eas build --platform android --profile development --local
+  879  npm install expo-dev-client
+  880  eas build --platform android --profile development --local
+  881  npm start
+  882  npm start
+  883  npm start
+  884  eas build --platform android --profile development --local
+  885  npm start
+  886  npm start
+  887  eas build --platform android --profile development --local
+  888  npm start
+  889  npm add react-native-screens
+  890  npm add react-native-safe-area-context
+  891  npm start
+  892  npm add react-native-safe-area-context
+  893  npm start --reset-cache
+  894  eas build --platform android --profile development --local
+  895  npm start
+  896  ls
+  897  cd assets
+  898  ls
+  899  cd images
+  900  ls
+  901  magick
+  902  ls
+  903  gile ipl.png
+  904  file ipl.png
+  905  rm ipl.jpg
+  906  convert ipl.png ipl.png
+  907  magic ipl.png ipl.png
+  908  magick ipl.png ipl.png
+  909  file ipl.png
+  910  magick csk.png csk.png
+  911  file csk.png
+  912  magick dc.png dc.png
+  913  magick kkr.png kkr.png
+  914  magick mi.png mi.png
+  915  magick pk.png pk.png
+  916  magick rcb.png rcb.png
+  917  magick rr.png rr.png
+  918  magick srh.png srh.png
+  919  cd ..
+  920  ls
+  921  cd ..
+  922  ls
+  923  eas build --platform android --profile preview\n
+  924  eas build --platform android --profile production\n
+  925  eas build --platform android --profile preview\n
+  926  eas build --platform android --profile production\n
+  927  git status
+  928  ;s
+  929  ls
+  930  ls
+  931  echo "# iplQuiz" >> README.md\ngit init\ngit add README.md\ngit commit -m "first commit"\ngit branch -M main\ngit remote add origin https://github.com/keerthch/iplQuiz.git\ngit push -u origin main
+  932  git status
+  933  git add --all
+  934  git commit -m "Initial commit"
+  935  git push origin main
+  936  magick
+  937  ls
+  938  ls
+  939  cd ..
+  940  ls
+  941  magic ipl_icon.webp ipl_icon.png
+  942  magick ipl_icon.webp ipl_icon.png
+  943  cd ..
+  944  ls
+  945  magic ipl_fg.webp ipl_fg.png
+  946  magick ipl_fg.webp ipl_fg.png
+  947  ls
+  948  cd ipl
+  949  ls
+  950  cd IPL
+  951  ls
+  952  ls
+  953  emulator -list-avds
+  954  adb devices
+  955  adb install /Users/keerthanchidanand/Downloads/application-48ed5478-7ab8-4a32-b824-88ed0824ed48.apk
+  956  adb shell pm list packages | grep ipl
+  957  adb shell pm list packages | grep IPL
+  958  adb shell pm list packages | grep quiz
+  959  emulator -list-avds
+  960  adb install /Users/keerthanchidanand/Downloads/application-48ed5478-7ab8-4a32-b824-88ed0824ed48.apk
+  961  ls
+  962  cd ..
+  963  ls
+  964  cd ..
+  965  ls
+  966  cd bingebrain
+  967  ls
+  968  npm install -g eas-cli && eas login
+  969  sudo npm install -g eas-cli && eas login
+  970  eas build --platform ios --profile production\n
+  971  eas build --platform ios --profile production\n
+  972  eas build --platform ios --profile production\n
+  973  eas build --platform ios --profile production\n
+  974  eas build --platform ios --profile production\n
+  975  history 1000
+  976  history 
+  977  history 300
+  978  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "checkStatus",\n  "roomId": "1234"\n}'\n
+  979  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "checkStatus",\n  "roomId": "9811"\n}'\n
+  980  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "checkStatus",\n  "roomId": "5117"\n}'\n
+  981  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  982  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  983  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  984  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  985  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  986  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  987  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  988  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  989  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  990  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  991  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  992  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  993  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  994  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  995  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  996  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  997  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  998  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+  999  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+ 1000  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+ 1001  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+ 1002  curl -X POST https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/ \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+ 1003  ls
+ 1004  cd ..
+ 1005  ls
+ 1006  cd bingebrain
+ 1007  ls
+ 1008  magick assets/images/DALL·E\ 2024-12-09\ 08.10.53\ -\ A\ minimalistic\ and\ sleek\ app\ icon\ for\ a\ Formula\ 1\ \(F1\)\ quiz\ app.\ The\ design\ features\ a\ red\ Formula\ 1\ car\ in\ motion\ at\ the\ bottom,\ a\ checkered\ flag\ sub.webp icon.png
+ 1009  which magick\n
+ 1010  brew install imagemagick\n
+ 1011  sudo apt update\nsudo apt install imagemagick\n
+ 1012  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"\n
+ 1013  export PATH="/usr/local/bin:$PATH"\n
+ 1014  source ~/.zshrc\n
+ 1015  brew install imagemagick\n
+ 1016  brew --version\n
+ 1017  export PATH="/usr/local/bin:$PATH"\n
+ 1018  brew --version\n
+ 1019  vim ~/.zshrc
+ 1020  source ~/.zshrc\n
+ 1021  brew --version\n
+ 1022  brew install imagemagick\n
+ 1023  imagemagick
+ 1024  brew reinstall imagemagick
+ 1025  magick --version\n
+ 1026  magick assets/images/DALL·E\ 2024-12-09\ 08.10.53\ -\ A\ minimalistic\ and\ sleek\ app\ icon\ for\ a\ Formula\ 1\ \(F1\)\ quiz\ app.\ The\ design\ features\ a\ red\ Formula\ 1\ car\ in\ motion\ at\ the\ bottom,\ a\ checkered\ flag\ sub.webp icon.png
+ 1027  ls
+ 1028  mv icon.png assets/images
+ 1029  rm assets/images/DALL·E\ 2024-12-09\ 08.10.53\ -\ A\ minimalistic\ and\ sleek\ app\ icon\ for\ a\ Formula\ 1\ \(F1\)\ quiz\ app.\ The\ design\ features\ a\ red\ Formula\ 1\ car\ in\ motion\ at\ the\ bottom,\ a\ checkered\ flag\ sub.webp
+ 1030  ls
+ 1031  curl -X POST https://4mwjct0udi.execute-api.ap-south-1.amazonaws.com/prod \\n-H "Content-Type: application/json" \\n-d '{\n  "action": "create",     \n  "playerName": "Player1" \n}'
+ 1032  magick
+ 1033  ls
+ 1034  cd assets/images
+ 1035  ls
+ 1036  file ferrari.png
+ 1037  magick ferrari.png ferrari.png
+ 1038  file ferrari.png
+ 1039  magick icon.png icon.png
+ 1040  magick mclaren.png mclaren.png
+ 1041  magick redbull.png redbull.png
+ 1042  magick alpine.png alpine.png
+ 1043  magick mercedes.png mercedes.png
+ 1044  magick f1.png f1.png
+ 1045  magick williams.png williams.png
+ 1046  magick ferrari.png ferrari.png
+ 1047  emulator -list-avds
+ 1048  emulator -avd Pixel_Tablet_API_35\n
+ 1049  ls
+ 1050  cd ..
+ 1051  ls
+ 1052  cd ..
+ 1053  ls
+ 1054  git status
+ 1055  git status
+ 1056  git add --all
+ 1057  git status
+ 1058  git commit -m "f1 quiz changes"
+ 1059  git branch
+ 1060  git push origin f1-main
+ 1061  assets/images/build-1733722231502.apk
+ 1062  git status
+ 1063  rm assets/images/build-173372
+ 1064  rm assets/images/build-173372*
+ 1065  git status
+ 1066  git add --all
+ 1067  git commit --amend
+ 1068  git push origin f1-main
+ 1069  git push origin f1-main
+ 1070  git status
+ 1071  git add --all
+ 1072  git commit -amend
+ 1073  git commit --amend
+ 1074  git push origin f1-main
+ 1075  git status
+ 1076  brew install watchman\n
+ 1077  watchman --version\n
+ 1078  ulimit -a\n
+ 1079  # Increase the file descriptor limit\nulimit -n 65536\n
+ 1080  # Increase the file descriptor limit\nulimit -n 65536\n
+ 1081  source ~/.zshrc   # or `source ~/.bashrc` if using Bash\n
+ 1082  source ~/.zshrc   # or `source ~/.bashrc` if using Bash\n
+ 1083  ls
+ 1084  cd ..
+ 1085  ls
+ 1086  cd ..
+ 1087  ls
+ 1088  cd instalearn
+ 1089  ls
+ 1090  cd instalearn
+ 1091  ls
+ 1092   npx expo start
+ 1093   npx expo start --clear
+ 1094  ls
+ 1095  cd ..
+ 1096  ls
+ 1097  cd ..
+ 1098  ls
+ 1099  cd bingebrain
+ 1100  ls
+ 1101  cd bingebrain
+ 1102  git status
+ 1103  git branch
+ 1104  ls
+ 1105  cd constants
+ 1106  ls
+ 1107  cd ..
+ 1108  cd assets/images
+ 1109  ls
+ 1110  rm ross.png
+ 1111  magick ross.webp ross.png
+ 1112  rm monica.png
+ 1113   magick monica.webp  monica.png
+ 1114  rm friends.png
+ 1115  rm app_icon.png
+ 1116  magic app_icon.webp app_icon.png
+ 1117  magick app_icon.webp app_icon.png
+ 1118  ls
+ 1119  cd ..
+ 1120  ls
+ 1121  cd ..
+ 1122  ls
+ 1123  eas build --platform android --profile development --local
+ 1124  eas build --platform android --profile development --local
+ 1125  npx expo start
+ 1126  cd assets/images
+ 1127  l
+ 1128  cp app_icon.png icon.png
+ 1129  cd ..
+ 1130  cd ..
+ 1131  npx expo start
+ 1132  ls
+ 1133  cd assets
+ 1134  ls
+ 1135  cd images
+ 1136  ls
+ 1137  rm rachel.png
+ 1138  magick rachel.webp rachel.png
+ 1139  ls
+ 1140  magick chandler.webp chandler.png
+ 1141  magick phoebe.webp phoebe.png
+ 1142  magick joey.webp joey.png
+ 1143  cd ..
+ 1144  cd ..
+ 1145  eas build --platform android --profile development --preview
+ 1146  eas build --platform android --profile preview --local
+ 1147  npx expo run
+ 1148  npx expo run
+ 1149  npx expo start
+ 1150  npx expo start
+ 1151  eas build --platform android --profile preview --local
+ 1152  eas build --platform android --profile preview --local
+ 1153  cp assets/images/icon.png assets/images/splash-icon.png
+ 1154  eas build --platform android --profile preview --local
+ 1155  eas build --platform ios --profile production 
+ 1156  npx expo prebuild --clean
+ 1157  git status
+ 1158  rm build-1733*
+ 1159  git status
+ 1160  rm assets/images/app_icon.webp
+ 1161  rm \tassets/images/chandler.webp
+ 1162  git add --all
+ 1163  git commit -m "Changing icons of friends"
+ 1164  git status
+ 1165  git push origin main
+ 1166  npx expo prebuild --clean
+ 1167  npx expo prebuild --clean
+ 1168  git status
+ 1169  git diff app/Results.tsx\n
+ 1170  git add app/Results.tsx\n
+ 1171  git commit -m "Changing banner Id"
+ 1172  git push origin main
+ 1173  npx expo prebuild --clean
+ 1174  git status
+ 1175  git status
+ 1176  eas build --platform android --profile preview --local 
+ 1177  eas build --platform android --profile preview --local
+ 1178  eas build --platform ios --profile production 
+ 1179  eas build --platform android --profile preview --local
+ 1180  git checkout main
+ 1181  git status
+ 1182  cp build-1733984811007.apk ../../solved
+ 1183  rm build-1733984811007.apk
+ 1184  git add --all
+ 1185  git  commit -m "changing images"
+ 1186  git push origin f1-main
+ 1187  git checkout main
+ 1188  git status
+ 1189  git diff  ios/FriendsQuiz/Info.plist
+ 1190  eas build --platform ios --profile production 
+ 1191  git status
+ 1192  git add ios/FriendsQuiz/Info.plist
+ 1193  git commit -m "removing tracker"
+ 1194  git push origin main
+ 1195  git checkout f1-main
+ 1196  cd assets/images
+ 1197  magick alpine.webp alpine.png
+ 1198  magick mclaren.webp mclaren.png
+ 1199  magick mercedes.webp mercedes.png
+ 1200  magick williams.webp williams.png
+ 1201  magick ferrari.webp ferrari.png
+ 1202  magick redbull.webp redbull.png
+ 1203  rm alpine.webp ferrari.webp mclaren.webp mercedes.webp redbull.webp williams.webp 
+ 1204  ls
+ 1205  cd ..
+ 1206  ls
+ 1207  cd images
+ 1208  rm splash-icon.png
+ 1209  cp icon.png splash-icon.png 
+ 1210  cd ..
+ 1211  ls
+ 1212  cd ..
+ 1213  ls
+ 1214  npx expo prebuild --clean
+ 1215  git status
+ 1216  git add --all
+ 1217  git commit -m "image, icon changes"
+ 1218  git push origin f1-main
+ 1219  git add --all
+ 1220  npx expo prebuild --clean
+ 1221  eas build --platform android --profile preview --local
+ 1222  eas build --platform android --profile production
+ 1223  eas build --platform android --profile p
+ 1224  GIT STATUS
+ 1225  git status
+ 1226  eas build --platform android --profile production --local
+ 1227  git commit -m "Changing banner Id"
+ 1228  npx expo prebuild --clean
+ 1229  eas build --platform ios --profile production 
+ 1230  eas build --platform android --profile production --local
+ 1231  ls
+ 1232  ls
+ 1233  cd ..
+ 1234  ls
+ 1235  cd ..
+ 1236  ls
+ 1237  mkdir audioquiz
+ 1238  ls
+ 1239  cd audioquiz
+ 1240  ls
+ 1241  echo "# audioQuiz" >> README.md\ngit init\ngit add README.md
+ 1242  ls
+ 1243  git clone https://github.com/keerthch/friendsQuiz.git
+ 1244  ls
+ 1245  cd friendsQuiz
+ 1246  ls
+ 1247  ls
+ 1248  npx expo run
+ 1249  npx expo start
+ 1250  yarn add expo
+ 1251  ls
+ 1252  cd ..
+ 1253  ls
+ 1254  cd ..
+ 1255  ls
+ 1256  cd bingebrain/bingebrain
+ 1257  ls
+ 1258  git status
+ 1259  rm \tbuild-1733989231374.apk\n
+ 1260  rm build-1733991598393.aab build-1734002423471.aab 
+ 1261  ls
+ 1262  git status
+ 1263  git add --all
+ 1264  git branch
+ 1265  git commit -m "other changes"
+ 1266  git push origin f1-main
+ 1267  git checkout -b "swiftie-main"
+ 1268  git status
+ 1269  ls
+ 1270  ls
+ 1271  git branch
+ 1272  npm install expo-av
+ 1273  sudo expo-av
+ 1274  sudo npm install expo-av
+ 1275  eas build --platform android --profile development --local
+ 1276  eas build --platform android --profile preview --local
+ 1277  npx expo start
+ 1278  npm install react-native-audiowaveform
+ 1279  npm install install react-native-svg
+ 1280  sudo npm install react-native-audiowaveform
+ 1281  sudo npm install react-native-svg
+ 1282  sudo npm install react-native-audiowaveform'
+ 1283  sudo npm install react-native-audiowaveform
+ 1284  npx expo start
+ 1285  npx expo start
+ 1286  npm install install expo-av
+ 1287  npm install expo-av
+ 1288  sudo npm install expo-av
+ 1289  sudo npm install react-native-svg
+ 1290  npx expo install expo-av
+ 1291  sudo  npx expo install expo-av
+ 1292  npm cache clean --force
+ 1293  npx expo start
+ 1294  eas build --platform android --profile preview --local
+ 1295  eas build --platform android --profile preview --development
+ 1296  eas build --platform android --profile preview --development
+ 1297  eas build --platform android --profile --development
+ 1298  eas build --platform android --profile development
+ 1299  eas build --platform android --profile development --local
+ 1300  npx expo start
+ 1301  npx expo start
+ 1302  npm install react-native-track-player\n
+ 1303  sudo npm install react-native-track-player\n
+ 1304  npx pod-install\n
+ 1305  npm install react-native-vector-icons\n
+ 1306  sudo npm install react-native-vector-icons\n
+ 1307  sudo npm install react-native-vector-icons\n
+ 1308  sudo npm install react-native-vector-icons\n
+ 1309  npm i --save-dev @types/react-native-vector-icons
+ 1310  sudo npm i --save-dev @types/react-native-vector-icons
+ 1311  npx expo start
+ 1312  eas build --platform android --profile development --local
+ 1313  npx expo start
+ 1314  npx expo start
+ 1315  npm install @react-native-community/slider\n
+ 1316  sudo npm install @react-native-community/slider\n
+ 1317  npx expo start
+ 1318  eas build --platform android --profile development --local
+ 1319  ls
+ 1320  git sttaus
+ 1321  git status
+ 1322  rm build-17340*
+ 1323  git add --all
+ 1324  git commit -m 'initial commit'
+ 1325  git status
+ 1326  git push origin swiftie-main
+ 1327  git checkout main
+ 1328  eas build --platform android --profile development --local
+ 1329  npx expo start
+ 1330  npx expo start
+ 1331  eas build --platform ios --profile production
+ 1332  eas build --platform android --profile development --local
+ 1333  eas build --platform android --profile preview --local
+ 1334  ls -ltr
+ 1335  cd ..
+ 1336  ls
+ 1337  cd bingebrain
+ 1338  ls
+ 1339  cd ios/o
+ 1340  ls
+ 1341  cd ios
+ 1342  ls
+ 1343  rm FriendsQuiz.xc*
+ 1344  rm -rf *xcodeproj
+ 1345  ls
+ 1346  cd ,,
+ 1347  ls
+ 1348  cd ,,
+ 1349  ls
+ 1350  cd ..
+ 1351  eas build --platform ios --profile production
+ 1352  eas build --platform ios --profile production
+ 1353  git status
+ 1354  git diff app.json
+ 1355  git diff app/Home.tsx
+ 1356  git diff app/Multiplayer.tsx
+ 1357  git status
+ 1358  eas build --platform ios --profile production
+ 1359  eas build --platform android --profile preview --local
+ 1360  git checkout main
+ 1361  git add --all
+ 1362  git commit -m "images"
+ 1363  git push origin f1-main
+ 1364  ls
+ 1365  rm build-1734110282511.apk
+ 1366  git push origin f1-main
+ 1367  git status
+ 1368  git checkout .
+ 1369  git statgus
+ 1370  git checkout main
+ 1371  ls
+ 1372  git branch
+ 1373  npm cache clean --force
+ 1374  npm cache clean --force
+ 1375  ls
+ 1376  eas build --platform ios --profile production
+ 1377  ls
+ 1378  git status
+ 1379  ls
+ 1380  git diff .
+ 1381  git add --all
+ 1382  git commit -m "remove ad related changed"
+ 1383  git push origin main
+ 1384  git checkout f1-main
+ 1385  git status
+ 1386  ls
+ 1387  ls
+ 1388  npm cache clean --force
+ 1389  npm cache clean --force
+ 1390   npx expo start --clear
+ 1391  eas build --platform ios --profile production
+ 1392  ls
+ 1393  git branch
+ 1394  git checkout main
+ 1395  ls
+ 1396  git add --all 
+ 1397  git commit -m "minor changes"
+ 1398  rm build-173415
+ 1399  rm build-1734158105246.apk build-1734159692017.apk 
+ 1400  git add --all
+ 1401  git commit --amend
+ 1402  git push origin swiftie-main
+ 1403  ls
+ 1404  ls
+ 1405  git branch
+ 1406  git checkout main
+ 1407  ls
+ 1408  ls
+ 1409  ls
+ 1410  eas build --platform android --profile preview
+ 1411  eas build --platform android --profile preview --local
+ 1412  eas build --platform android --profile development --local
+ 1413  npx expo start
+ 1414  ls
+ 1415  eas build --platform ios --profile production 
+ 1416  eas build --platform ios --profile production 
+ 1417  npm cache clean --force
+ 1418   npx expo start --clear
+ 1419  eas build --platform ios --profile production 
+ 1420   npx expo start --clear
+ 1421  npm cache clean --force
+ 1422  eas build --platform ios --profile production 
+ 1423  git status
+ 1424  git add --all
+ 1425  git commit -m "minor changes"
+ 1426  git branch
+ 1427  git push origin main
+ 1428  git branch
+ 1429  git checkout -b ipl-new
+ 1430  ls
+ 1431  cp ../ipl/IPL/assets/images/csk.png assets/images
+ 1432  cp ../ipl/IPL/assets/images/rcb.png assets/images
+ 1433  cp ../ipl/IPL/assets/images/dc.png assets/images
+ 1434  cp ../ipl/IPL/assets/images/kkr.png assets/images
+ 1435  cp ../ipl/IPL/assets/images/mi.png assets/images
+ 1436  cp ../ipl/IPL/assets/images/srh.png assets/images
+ 1437  cp ../ipl/IPL/assets/images/rr.png assets/images
+ 1438  cp ../ipl/IPL/assets/images/pk.png assets/images
+ 1439  cp ../ipl/IPL/assets/images/ipl.png assets/images
+ 1440  cd assets/images
+ 1441  ls
+ 1442  rm monica.png rachel.png ross.png chandler.png phoebe.png 
+ 1443  ls
+ 1444  ls
+ 1445  rm joey.png
+ 1446  cd ..
+ 1447  ls
+ 1448  cd ..
+ 1449  ls
+ 1450  cd assets/images
+ 1451  ls
+ 1452  rm ipl.png
+ 1453  magick ipl.webp ipl.png
+ 1454  ls
+ 1455  ls
+ 1456  cp ipl.png app_icon.png
+ 1457  cd ..
+ 1458  ls
+ 1459  cd ..
+ 1460  ls
+ 1461  eas build --platform android --profile development --local
+ 1462  eas build --platform android --profile preview --local
+ 1463  git status
+ 1464  git checkout ios/FriendsQuiz/Info.plist
+ 1465  git checkout android/app/src/main/java/com/bingbrain/MainApplication.kt
+ 1466  git checkout  android/app/src/main/AndroidManifest.xml
+ 1467  git status
+ 1468  git status
+ 1469  eas build --platform android --profile preview --local
+ 1470  eas build --platform android --profile development --local
+ 1471  npm expo start
+ 1472  nxp expo start
+ 1473   npx expo start --clear
+ 1474   npx expo start --clear
+ 1475   npx expo start --clear
+ 1476  git status
+ 1477  rm build-17343*
+ 1478  git add --all
+ 1479  git commit -m "Initial changes"
+ 1480  git branch
+ 1481  git push origin ipl-new
+ 1482  git checkout swiftie-main
+ 1483  git status
+ 1484  npx expo run
+ 1485  npx expo start
+ 1486  eas build --platform android --profile development --local
+ 1487  eas build --platform android --profile development --local
+ 1488  npm cache clean --force
+ 1489  eas build --platform android --profile development --local
+ 1490  npm cache clean --force\n
+ 1491  rm -rf node_modules package-lock.json
+ 1492  sudo rm -rf node_modules package-lock.json
+ 1493  npm install --verbose\n
+ 1494  eas build --platform android --profile development --local
+ 1495  git status
+ 1496  git diff app.json
+ 1497  git checkout app.json
+ 1498  git diff package-lock.json
+ 1499  npm cache clean --force\n
+ 1500  eas build --platform android --profile development --local
+ 1501  eas build --platform android --profile development --preview
+ 1502  eas build --platform android --profile preview --local
+ 1503  expo install expo-updates
+ 1504  npx expo install expo-updates
+ 1505  eas build --platform android --profile preview --local
+ 1506  npx expo prebuild --clean
+ 1507  eas build --platform android --profile preview --local
+ 1508  npx expo start
+ 1509  npx expo start
+ 1510  npx expo start
+ 1511  eas build --platform android --profile development --local
+ 1512  npx expo start
+ 1513  git status
+ 1514  rm build-173441*
+ 1515  git status
+ 1516  git add --all
+ 1517  git commit -m "added audio slider"
+ 1518  git push origin swiftie-main
+ 1519  git branch
+ 1520  git checkout ipl-new
+ 1521  ls
+ 1522  ls
+ 1523  npx expo start
+ 1524  eas build --platform android --profile preview --local
+ 1525  npx expo start
+ 1526  eas build --platform android --profile development --local
+ 1527  npx expo start
+ 1528  histoy 100
+ 1529  history 100

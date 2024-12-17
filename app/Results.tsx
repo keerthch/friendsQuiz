@@ -15,8 +15,8 @@ import {
   AdEventType,
 } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/9045873704"; 
+const androidAdmobBanner = "ca-app-pub-8141886191578873/7194037300";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/8423358492"; 
 
 type QuizType = "single" | "multiplayer" | "quote";
 

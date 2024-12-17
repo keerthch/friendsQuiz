@@ -98,7 +98,7 @@ export default function Home({ navigation }: Props) {
   
 
   const handleGuessTheQuote = () => {
-    if (unlockedLevels < 0) {
+    if (unlockedLevels < 5) {
       Alert.alert(
         "Locked Feature",
         "You need to unlock Level 5 to access 'Guess the Quote.'"
@@ -178,7 +178,7 @@ export default function Home({ navigation }: Props) {
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>Sitcom Quiz - Friends</Text>
+      <Text style={styles.title}>IPL Quiz</Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>

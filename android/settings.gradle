@@ -21,7 +21,7 @@ extensions.configure(com.facebook.react.ReactSettingsExtension) { ex ->
   }
 }
 
-rootProject.name = 'Friends Quiz'
+rootProject.name = 'IPL Quiz'
 
 dependencyResolutionManagement {
   versionCatalogs {

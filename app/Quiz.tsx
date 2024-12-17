@@ -68,7 +68,7 @@ export default function Quiz({ route, navigation }: Props) {
   // Function to pick 10 random quotes
   const getRandomQuotes = () => {
     const shuffledQuotes = [...quotes].sort(() => Math.random() - 0.5);
-    return shuffledQuotes.slice(0, 6);
+    return shuffledQuotes.slice(0, 10);
   };
 
   const questions: (QuoteQuestion | LevelQuestion)[] = React.useMemo(() => {
@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
       alignItems: "center",
       backgroundColor: "#f0f0f0", // Optional background color
     },
-    option: {
+    option_quote: {
       width: "30%", // Ensure 3 options fit per row
       marginVertical: 10,
       padding: 10,
@@ -357,6 +357,16 @@ const styles = StyleSheet.create({
       backgroundColor: "#ddd", // Default background
       alignItems: "center",
       justifyContent: "center",
+    },
+    option: {
+      width: "90%",
+      paddingVertical: SCREEN_HEIGHT * 0.015,
+      marginVertical: SCREEN_HEIGHT * 0.02,
+      borderWidth: 2,
+      borderColor: "#fff",
+      borderRadius: 20,
+      backgroundColor: "#333",
+      alignItems: "center",
     },
     correctOutline: {
       borderColor: "green",

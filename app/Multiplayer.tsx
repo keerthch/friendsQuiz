@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/7194037300";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -67,7 +67,7 @@ export default function Multiplayer({ navigation }: Props) {
 
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://yk92uud3ri.execute-api.ap-south-1.amazonaws.com/prod/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -98,7 +98,7 @@ export default function Multiplayer({ navigation }: Props) {
   
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://yk92uud3ri.execute-api.ap-south-1.amazonaws.com/prod/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -136,7 +136,7 @@ export default function Multiplayer({ navigation }: Props) {
     const interval = setInterval(async () => {
       try {
         const response = await fetch(
-          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+          "https://yk92uud3ri.execute-api.ap-south-1.amazonaws.com/prod/",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -216,6 +216,18 @@ export default function Multiplayer({ navigation }: Props) {
           </TouchableOpacity>
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
+        <View style={styles.iconContainer}>
+
+            <TouchableOpacity
+          style={styles.circularButton1}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Ionicons name="home" size={15} color="#fff" />
+          <Text style={styles.buttonLabel}>Home</Text>
+        </TouchableOpacity>
+        </View>
+        
+
   
         <View style={styles.iconContainer}>
           <TouchableOpacity
@@ -316,6 +328,11 @@ const styles = StyleSheet.create({
     top: SCREEN_HEIGHT * 0.03,
     right: SCREEN_WIDTH * 0.05,
   },
+  rulesIconContainer1: {
+    position: "absolute",
+    top: SCREEN_HEIGHT * 0.03,
+    right: SCREEN_WIDTH * 0.05,
+  },
   input: {
     width: "80%",
     padding: 15,
@@ -346,6 +363,14 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH * 0.2,
     height: SCREEN_WIDTH * 0.2,
     borderRadius: (SCREEN_WIDTH * 0.2) / 2,
+    backgroundColor: "#123456",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  circularButton1: {
+    width: SCREEN_WIDTH * 0.15,
+    height: SCREEN_WIDTH * 0.15,
+    borderRadius: (SCREEN_WIDTH * 0.15) / 2,
     backgroundColor: "#123456",
     justifyContent: "center",
     alignItems: "center",
@@ -385,6 +410,12 @@ const styles = StyleSheet.create({
     color: "#ccc",
     textAlign: "center",
     marginVertical: 5,
+  },
+  buttonLabel: {
+    fontSize: 12,
+    color: "#fff",
+    fontWeight: "bold",
+    marginTop: 4,
   },
   closeButton: {
     marginTop: 20,
