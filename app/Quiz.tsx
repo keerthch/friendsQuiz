@@ -84,32 +84,41 @@ export default function Quiz({ route, navigation }: Props) {
   }, [passedQuestions, level, isQuoteQuiz]);
 
   const totalQuestions = questions.length;
-
+  const current = questions[currentQuestion];
+  
   useEffect(() => {
-    // Start animation
-    Animated.timing(animatedProgress, {
-      toValue: 0,
-      duration: 10000,
-      useNativeDriver: true,
-    }).start();
-
-    // Start timer
-    timerRef.current = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev === 1) {
-          clearInterval(timerRef.current!); // Clear timer when reaching timeout
-          handleTimeout();
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
+    // Check if the current question is NOT audio-based
+    if (!("quote" in current && isAudioObject(current.quote))) {
+      // Start animation
+      Animated.timing(animatedProgress, {
+        toValue: 0,
+        duration: 10000,
+        useNativeDriver: true,
+      }).start();
+  
+      // Start timer
+      timerRef.current = setInterval(() => {
+        setTimeLeft((prev) => {
+          if (prev === 1) {
+            clearInterval(timerRef.current!); // Clear timer when reaching timeout
+            handleTimeout();
+          }
+          return prev - 1;
+        });
+      }, 1000);
+    }
+  
     return () => {
-      clearInterval(timerRef.current!); // Clear timer on unmount or question change
+      clearInterval(timerRef.current!); // Cleanup
       timerRef.current = null;
       animatedProgress.stopAnimation();
     };
-  }, [currentQuestion]);
+  }, [currentQuestion, current]);
+  
+  // Helper function for type narrowing
+  const isAudioObject = (value: any): value is { audio: string } => {
+    return value && typeof value === "object" && "audio" in value;
+  };
 
   const handleTimeout = () => {
     if (!selectedAnswer) {
@@ -185,7 +194,7 @@ export default function Quiz({ route, navigation }: Props) {
     });
   };
 
-  const current = questions[currentQuestion];
+
 
   return (
     <View style={styles.container}>
@@ -212,7 +221,6 @@ export default function Quiz({ route, navigation }: Props) {
       <Text style={styles.question}>{`"${current.quote}"`}</Text>
     ) : (
       <View style={styles.audioQuestionContainer}>
-        <Text style={styles.audioPrompt}>Listen to the quote:</Text>
         <AudioPlayer source={current.quote.audio} />
       </View>
     )}
@@ -290,23 +298,19 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 // Styles
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-      padding: 20,
-      backgroundColor: "#1a1a2e",
-    },
-    header: {
-      position: "absolute",
-      top: SCREEN_HEIGHT * 0.03, // Reduced distance from the top
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      width: "100%",
-      paddingHorizontal: 20,
-      zIndex: 10,
-    },
+  container: {
+    flex: 1,
+    backgroundColor: "#1a1a2e",
+  },
+  header: {
+    position: "relative", // Remove absolute positioning for natural layout flow
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    paddingHorizontal: 20,
+    marginTop: 20, // Add some space from the top
+  },
     counterContainer: {
       flex: 1,
       justifyContent: "center",
@@ -401,9 +405,10 @@ const styles = StyleSheet.create({
     questionContainer: {
       margin: 16,
     },
-    audioQuestionContainer: {
-      alignItems: 'center',
-    },
+     audioQuestionContainer: {
+      alignItems: "center",
+      marginTop: 30, // Adds vertical spacing above AudioPlayer
+  },
     audioPrompt: {
       marginBottom: 8,
       fontSize: 16,

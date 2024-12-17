@@ -100,29 +100,58 @@ export default AudioPlayer;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: "center",
-    justifyContent: "center",
     flex: 1,
+    backgroundColor: "#1a1a2e",
+    paddingHorizontal: 10, // Prevent horizontal overflow
+  },
+  header: {
+    position: "relative",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    paddingHorizontal: 20,
+    marginTop: 20,
+  },
+  questionContainer: {
+    marginTop: 50,
+    alignItems: "center",
+    paddingHorizontal: 20,
+  },
+  audioQuestionContainer: {
+    alignItems: "center",
+    marginTop: 30,
+    width: "100%", // Ensure container takes full width
   },
   sliderContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: width - 40,
+    justifyContent: "center",
+    width: "90%", // Adjust slider container width to fit within the screen
+    marginTop: 10,
+    marginBottom: 10,
+  },
+  slider: {
+    flex: 1, // Slider will stretch within available space
+    height: 35,
   },
   playPauseButton: {
     marginRight: 10,
-  },
-  slider: {
-    flex: 1, // Slider takes remaining space
+    justifyContent: "center",
+    alignItems: "center",
+    width: 40,
+    height: 40,
   },
   timeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    width: width - 40,
+    alignItems: "center",
+    width: "90%", // Consistent width with the slider
     marginTop: 10,
   },
   timeText: {
     fontSize: 14,
+    fontWeight: "bold",
     color: "#4caf50",
   },
 });
