@@ -73,7 +73,7 @@ export default function Home({ navigation }: Props) {
         setisVisible(true)
         // Fetch questions from the API
         const response = await fetch(
-          `https://z94udtqgs9.execute-api.ap-south-1.amazonaws.com/prod?level=${level}`
+          `https://5jw0kp4zk5.execute-api.ap-south-1.amazonaws.com/prod?level=${level}`
         );
   
         if (!response.ok) {
@@ -98,7 +98,7 @@ export default function Home({ navigation }: Props) {
   
 
   const handleGuessTheQuote = () => {
-    if (unlockedLevels < 5) {
+    if (unlockedLevels < 0) {
       Alert.alert(
         "Locked Feature",
         "You need to unlock Level 5 to access 'Guess the Quote.'"
@@ -186,7 +186,7 @@ export default function Home({ navigation }: Props) {
           style={[styles.levelButton, styles.blueButton]}
           onPress={handleGuessTheQuote}
         >
-          <Text >Guess the Quote</Text>
+          <Text >Guess the Team</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.levelButton, styles.blueButton]}
@@ -227,10 +227,10 @@ export default function Home({ navigation }: Props) {
             </Text>
             <Text style={styles.modalText}>
               4. A new set of quotes is generated every time you play "Guess the
-              Quote."
+              Team."
             </Text>
             <Text style={styles.modalText}>
-              5. Unlock level 5 to enjoy "Guess the Quote" anytime, even without an internet connection! 😊
+              5. Unlock level 5 to enjoy "Guess the Team" anytime, even without an internet connection! 😊
             </Text>
             <TouchableOpacity
               style={styles.closeButton}

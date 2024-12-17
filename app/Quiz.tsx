@@ -44,13 +44,16 @@ type LevelQuestion = {
 
 type Props = NativeStackScreenProps<RootStackParamList, "Quiz">;
 
-const characterImages: Record<"Ross" | "Chandler" | "Phoebe" | "Rachel" | "Monica" | "Joey", any> = {
-  Ross: require("../assets/images/ross.png"),
-  Phoebe: require("../assets/images/phoebe.png"),
-  Chandler: require("../assets/images/chandler.png"),
-  Rachel: require("../assets/images/rachel.png"),
-  Monica: require("../assets/images/monica.png"),
-  Joey: require("../assets/images/joey.png"),
+const characterImages: Record<"KKR" | "CSK" | "RR" | "MI" | "RCB" | "PK" | "SRH" | "DC" | "GT", any> = {
+  KKR: require("../assets/images/kkr.png"),
+  CSK: require("../assets/images/csk.png"),
+  RR: require("../assets/images/rr.png"),
+  MI: require("../assets/images/mi.png"),
+  RCB: require("../assets/images/rcb.png"),
+  PK: require("../assets/images/pk.png"),
+  SRH: require("../assets/images/srh.png"),
+  DC: require("../assets/images/dc.png"),
+  GT: require("../assets/images/gt.png"),
 };
 
 export default function Quiz({ route, navigation }: Props) {
@@ -209,52 +212,53 @@ export default function Quiz({ route, navigation }: Props) {
       </Text>
 
       {/* Options */}
-      <View style={styles.optionsContainer}>
-        {"quote" in current
-          ? Object.keys(characterImages).map((character) => {
-              const isSelected = selectedAnswer === character;
-              const isCorrectAnswer = current.correctAnswer === character;
+<View style={styles.optionsContainer}>
+  {"quote" in current
+    ? Object.keys(characterImages).map((character) => {
+        const isSelected = selectedAnswer === character;
+        const isCorrectAnswer = current.correctAnswer === character;
 
-              return (
-                <View key={character} style={styles.characterContainer}>
-                <TouchableOpacity
-                  style={[
-                    styles.imageOption,
-                    isSelected && !isCorrectAnswer && styles.wrongOutline,
-                    isCorrectAnswer && (isSelected || selectedAnswer) && styles.correctOutline,
-                  ]}
-                  onPress={() => handleAnswer(character)}
-                  disabled={!!selectedAnswer}
-                >
-                  <Image
-                    source={characterImages[character as keyof typeof characterImages]}
-                    style={styles.characterImage}
-                  />
-                </TouchableOpacity>
-                <Text style={styles.characterName}>{character}</Text>
-              </View>
-              );
-            })
-          : current.options.map((option) => {
-              const isSelected = selectedAnswer === option;
-              const isCorrectAnswer = current.correctAnswer === option;
+        return (
+          <View key={character} style={styles.characterWrapper}>
+            <TouchableOpacity
+              style={[
+                styles.imageOption,
+                isSelected && !isCorrectAnswer && styles.wrongOutline,
+                isCorrectAnswer && (isSelected || selectedAnswer) && styles.correctOutline,
+              ]}
+              onPress={() => handleAnswer(character)}
+              disabled={!!selectedAnswer}
+            >
+              <Image
+                source={characterImages[character as keyof typeof characterImages]}
+                style={styles.characterImage}
+              />
+            </TouchableOpacity>
+            <Text style={styles.characterName}>{character}</Text>
+          </View>
+        );
+      })
+    : current.options.map((option) => {
+        const isSelected = selectedAnswer === option;
+        const isCorrectAnswer = current.correctAnswer === option;
 
-              return (
-                <TouchableOpacity
-                  key={option}
-                  style={[
-                    styles.option,
-                    isSelected && !isCorrectAnswer && styles.wrongOutline,
-                    isCorrectAnswer && (isSelected || selectedAnswer) && styles.correctOutline,
-                  ]}
-                  onPress={() => handleAnswer(option)}
-                  disabled={!!selectedAnswer}
-                >
-                  <Text style={styles.optionText}>{option}</Text>
-                </TouchableOpacity>
-              );
-            })}
-      </View>
+        return (
+          <TouchableOpacity
+            key={option}
+            style={[
+              styles.option,
+              isSelected && !isCorrectAnswer && styles.wrongOutline,
+              isCorrectAnswer && (isSelected || selectedAnswer) && styles.correctOutline,
+            ]}
+            onPress={() => handleAnswer(option)}
+            disabled={!!selectedAnswer}
+          >
+            <Text style={styles.optionText}>{option}</Text>
+          </TouchableOpacity>
+        );
+      })}
+</View>
+
     </View>
   );
 }
@@ -286,6 +290,11 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
+    },
+    characterWrapper: {
+      width: "30%", // Ensure 3 items fit in one row
+      marginVertical: 10, // Add vertical spacing between rows
+      alignItems: "center", // Center each option horizontally
     },
     circularContainer: {
       justifyContent: "center",
@@ -327,37 +336,35 @@ const styles = StyleSheet.create({
     },
     optionsContainer: {
       flexDirection: "row",
-      flexWrap: "wrap",
-      justifyContent: "center",
-      marginTop: SCREEN_HEIGHT * 0.02,
+      flexWrap: "wrap", // Allows wrapping to next row
+      justifyContent: "space-between", // Adds space between options
+      alignItems: "center", // Centers options vertically in a row
     },
+  
     imageOption: {
-      margin: SCREEN_WIDTH * 0.03,
+      width: 80, // Adjust size to make it smaller
+      height: 80,
+      borderRadius: 10,
+      justifyContent: "center",
       alignItems: "center",
-      borderWidth: 5,
-      borderColor: "transparent",
-      borderRadius: SCREEN_WIDTH * 0.2,
-    },
-    characterImage: {
-      width: SCREEN_WIDTH * 0.3,
-      height: SCREEN_WIDTH * 0.3,
-      borderRadius: SCREEN_WIDTH * 0.15,
+      backgroundColor: "#f0f0f0", // Optional background color
     },
     option: {
-      width: "90%",
-      paddingVertical: SCREEN_HEIGHT * 0.015,
-      marginVertical: SCREEN_HEIGHT * 0.02,
-      borderWidth: 2,
-      borderColor: "#fff",
-      borderRadius: 20,
-      backgroundColor: "#333",
+      width: "30%", // Ensure 3 options fit per row
+      marginVertical: 10,
+      padding: 10,
+      borderRadius: 8,
+      backgroundColor: "#ddd", // Default background
       alignItems: "center",
+      justifyContent: "center",
     },
     correctOutline: {
       borderColor: "green",
+      borderWidth: 4,
     },
     wrongOutline: {
       borderColor: "red",
+      borderWidth: 4,
     },
     optionText: {
       fontSize: SCREEN_WIDTH * 0.04,
@@ -367,10 +374,14 @@ const styles = StyleSheet.create({
     characterContainer: {
       alignItems: "center",
     },
+    characterImage: {
+      width: 70,
+      height: 70,
+      resizeMode: "contain",
+    },
     characterName: {
-      fontSize: 16,
-      fontWeight: "bold",
-      color: "#fff",
+      marginTop: 5,
+      fontSize: 12,
       textAlign: "center",
     },
   });
