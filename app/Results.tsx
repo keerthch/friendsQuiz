@@ -226,6 +226,18 @@ export default function Results({ route, navigation }: Props) {
         </TouchableOpacity>
       </View>
 
+      <Text style={styles.unlockMessage1}>
+      The faster you answer, the more points you earn. 10 points at 10 seconds, decreasing over time.
+      </Text>
+  
+      {/* Unlock Next Level Message */}
+      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 75 && (
+        <Text style={styles.unlockMessage}>
+          Score greater than or equal to 75% to unlock the next level! 
+        </Text>
+      )}
+  
+
       {/* Ad Container */}
       <View style={styles.adContainer}>
         <BannerAd
@@ -440,5 +452,11 @@ const styles = StyleSheet.create({
   playerScore: {
     color: '#fff',
     fontSize: 14,
+  },
+  unlockMessage1: {
+    marginTop: 22,
+    fontSize: 14,
+    color: "#fff",
+    textAlign: "center",
   },
 });

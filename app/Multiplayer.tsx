@@ -216,6 +216,8 @@ export default function Multiplayer({ navigation }: Props) {
           </TouchableOpacity>
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
+
+      
         <View style={styles.iconContainer}>
 
             <TouchableOpacity
