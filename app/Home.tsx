@@ -9,7 +9,6 @@ import {
   Image,
   Dimensions,
   Modal,
-  Animated,
 } from "react-native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -20,7 +19,11 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 type RootStackParamList = {
   Home: undefined;
   Multiplayer: undefined;
-  Quiz: { level?: number; isQuoteQuiz?: boolean; questions?: (QuoteQuestion | LevelQuestion)[];   };
+  Quiz: {
+    level?: number;
+    isQuoteQuiz?: boolean;
+    questions?: (QuoteQuestion | LevelQuestion)[];
+  };
   Results: { score: number; total: number; level?: number };
 };
 type QuoteQuestion = {
@@ -34,24 +37,19 @@ type LevelQuestion = {
   correctAnswer: string;
 };
 
-
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, "Home">;
-  
 };
 
-
 export default function Home({ navigation }: Props) {
-  const [unlockedLevels, setUnlockedLevels] = useState<number>(1);
   const [modalVisible, setModalVisible] = useState(false);
-  const[isVisible, setisVisible] = useState(false)
+  const [isVisible, setisVisible] = useState(false);
 
   useEffect(() => {
     const loadUnlockedLevels = async () => {
       try {
         const savedLevels = await AsyncStorage.getItem("unlockedLevels");
         if (savedLevels) {
-          setUnlockedLevels(parseInt(savedLevels, 10));
         }
       } catch (error) {
         console.error("Failed to load unlocked levels:", error);
@@ -61,88 +59,43 @@ export default function Home({ navigation }: Props) {
     loadUnlockedLevels();
   }, []);
 
-  const handleStartQuiz = async (level: number) => {
-    if (level > unlockedLevels) {
-      Alert.alert(
-        "Locked Level",
-        "You must unlock this level by completing the previous one."
-      );
-    } else {
-      try {
-        // Show a loading indicator while fetching questions
-        setisVisible(true)
-        // Fetch questions from the API
-        const response = await fetch(
-          `https://cxn8d58dd1.execute-api.ap-south-1.amazonaws.com/prod?level=${level}`
-        );
-  
-        if (!response.ok) {
-          throw new Error(`Error fetching questions: ${response.status}`);
-        }
-  
-        const data = await response.json();
-  
-        // Navigate to the Quiz component with the questions
-        navigation.navigate("Quiz", { level, questions: data.questions });
-      } catch (error) {
-        setisVisible(false)
-        // Handle errors
-        Alert.alert("Error", `Failed to fetch questions: `);
-      } finally {
-        setisVisible(false)
-        // Hide loading indicator
-
-      }
+  const handleButtonPress = (buttonName: string) => {
+    switch (buttonName) {
+      case "Guess the Team":
+        navigation.navigate("Quiz", { isQuoteQuiz: true });
+        break;
+      case "Multiplayer":
+        navigation.navigate("Multiplayer");
+        break;
+      case "Guess the Song":
+        Alert.alert("Feature Coming Soon", "Guess the Song is under development!");
+        break;
+      case "Random Opponent":
+        Alert.alert("Feature Coming Soon", "Random Opponent is under development!");
+        break;
     }
   };
-  
 
-  const handleGuessTheQuote = () => {
-    navigation.navigate("Quiz", { isQuoteQuiz: true });
-  };
-
-  const handleMultiplayer = () => {
-    navigation.navigate("Multiplayer");
-  };
-
-
-
-  const renderLevels = () => {
-    const levels = [...Array(10)].map((_, index) => {
-      const level = index + 1;
-      const isLocked = level > unlockedLevels;
-
-      return (
-        <TouchableOpacity
-          key={level}
-          style={[
-            styles.circularButton,
-            isLocked ? styles.lockedButton : styles.greenButton,
-          ]}
-          onPress={() => handleStartQuiz(level)}
-        >
-          <Text style={styles.buttonText}>{level}</Text>
-        </TouchableOpacity>
-      );
-    });
-
-    const rows = [];
-    for (let i = 0; i < levels.length; i += 5) {
-      rows.push(levels.slice(i, i + 5));
-    }
-
-    return rows.map((row, rowIndex) => (
-      <View key={rowIndex} style={styles.circularButtonRow}>
-        {row}
+  const renderButtons = () => {
+    const buttons = ["Guess the Team", "Multiplayer", "Single Player", "Random Opponent"];
+    return (
+      <View style={styles.buttonGrid}>
+        {buttons.map((buttonName, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.curvedButton}
+            onPress={() => handleButtonPress(buttonName)}
+          >
+            <Text style={styles.buttonText}>{buttonName}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
-    ));
+    );
   };
 
-  return  (
-
-    
+  return (
     <View style={styles.container}>
-       {true && (
+      {isVisible && (
         <Modal transparent={true} animationType="fade" visible={isVisible}>
           <View style={styles.modalBackground}>
             <View style={styles.loadingContainer}>
@@ -152,15 +105,9 @@ export default function Home({ navigation }: Props) {
           </View>
         </Modal>
       )}
+      
 
-      {/* Rules Icon */}
-      <TouchableOpacity
-        style={styles.rulesIconContainer}
-        onPress={() => setModalVisible(true)}
-      >
-        <Ionicons name="information-circle-outline" size={30} color="#fff" />
-      </TouchableOpacity>
-
+      
       {/* Circular Image */}
       <View style={styles.imageContainer}>
         <Image
@@ -170,35 +117,10 @@ export default function Home({ navigation }: Props) {
         />
       </View>
 
-      {/* Title */}
-      <Text style={styles.title}>F1 Trivia Quiz </Text>
+       {/* Title */}
+       <Text style={styles.title}>IPL Trivia Quiz</Text>
+      {renderButtons()}
 
-      {/* Guess the Quote and Multiplayer */}
-      <View style={styles.buttonRow}>
-        <TouchableOpacity
-          style={[styles.levelButton, styles.blueButton]}
-          onPress={handleGuessTheQuote}
-        >
-          <Text >Guess the Team</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.levelButton, styles.blueButton]}
-          onPress={handleMultiplayer}
-        >
-          <Text>Multiplayer</Text>
-        </TouchableOpacity>
-
-        
-
-
-
-      </View>
-     
-
-      {/* Levels */}
-      <View style={styles.levelsContainer}>{renderLevels()}</View>
-
-      {/* Rules Modal */}
       <Modal
         visible={modalVisible}
         animationType="slide"
@@ -208,23 +130,11 @@ export default function Home({ navigation }: Props) {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>Rules</Text>
+            <Text style={styles.modalText}>1. You can get a maximum of 10 points per question.</Text>
             <Text style={styles.modalText}>
-              1. You can get a maximum of 10 points per question.
+              2. The faster you answer, the more points you earn.
             </Text>
-            <Text style={styles.modalText}>
-              2. The faster you answer, the more points you earn. At 10 seconds,
-              points will be 10, and they decrease with time.
-            </Text>
-            <Text style={styles.modalText}>
-              3. To move to the next level, you must score above 85%.
-            </Text>
-            <Text style={styles.modalText}>
-              4. A new set of questions is generated every time you play "Guess the
-              Team."
-            </Text>
-            <Text style={styles.modalText}>
-              5. You can enjoy "Guess the Team" even without an internet connection! 😊
-            </Text>
+            <Text style={styles.modalText}>3. To move to the next level, you must score above 85%.</Text>
             <TouchableOpacity
               style={styles.closeButton}
               onPress={() => setModalVisible(false)}
@@ -241,26 +151,18 @@ export default function Home({ navigation }: Props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     backgroundColor: "#1a1a2e",
     paddingVertical: SCREEN_HEIGHT * 0.05,
     paddingHorizontal: SCREEN_WIDTH * 0.05,
   },
-  rulesIconContainer: {
-    position: "absolute",
-    top: SCREEN_HEIGHT * 0.03,
-    right: SCREEN_WIDTH * 0.05,
-  },
-  imageContainer: {
-    width: SCREEN_WIDTH * 0.5,
-    height: SCREEN_WIDTH * 0.5,
-    borderRadius: (SCREEN_WIDTH * 0.5) / 2,
-    overflow: "hidden",
-    backgroundColor: "#333",
+  imageContainerFullWidth: {
+    width: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 0.6,
     marginBottom: SCREEN_HEIGHT * 0.03,
   },
-  image: {
+  imageFullWidth: {
     width: "100%",
     height: "100%",
   },
@@ -268,31 +170,34 @@ const styles = StyleSheet.create({
     fontSize: SCREEN_WIDTH * 0.08,
     fontWeight: "bold",
     color: "#f9f9f9",
-    marginBottom: SCREEN_HEIGHT * 0.04,
+    marginBottom: SCREEN_HEIGHT * 0.02,
     textAlign: "center",
   },
-  buttonRow: {
+  buttonGrid: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: "90%",
-    marginBottom: 50,
-  },
-  circularButtonRow: {
-    flexDirection: "row",
-    justifyContent: "space-around",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
     width: "100%",
-    marginBottom: SCREEN_HEIGHT * 0.02,
+    marginTop: 50,
   },
-  circularButton: {
-    width: SCREEN_WIDTH * 0.15,
-    height: SCREEN_WIDTH * 0.15,
-    borderRadius: (SCREEN_WIDTH * 0.15) / 2,
+  curvedButton: {
+    width: SCREEN_WIDTH * 0.35,
+    height: SCREEN_WIDTH * 0.35,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#fff",
+    marginBottom: 20,
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.2,
     shadowRadius: 5,
+    borderRadius: 20,
+  },
+  buttonText: {
+    fontSize: SCREEN_WIDTH * 0.04,
+    fontWeight: "bold",
+    color: "#000",
+    textAlign: "center",
   },
   modalBackground: {
     flex: 1,
@@ -310,37 +215,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: "#3CB371",
     fontSize: 16,
-  },
-
-  greenButton: {
-    backgroundColor: "#4caf50", // Green for unlocked levels
-  },
-  lockedButton: {
-    backgroundColor: "#cccccc", // Gray for locked levels
-  },
-  blueButton: {
-    backgroundColor: "#ffff", // Blue for Guess the Quote and Multiplayer
-  },
-  buttonText: {
-    fontSize: SCREEN_WIDTH * 0.035,
-    fontWeight: "bold",
-    color: "#fff",
-    textAlign: "center",
-  },
-  levelButton: {
-    width: "45%",
-    height: SCREEN_HEIGHT * 0.08,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 3,
-  },
-  levelsContainer: {
-    width: "100%",
-    alignItems: "center",
   },
   modalContainer: {
     flex: 1,
@@ -379,5 +253,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
   },
+  imageContainer: {
+    width: SCREEN_WIDTH * 0.5,
+    height: SCREEN_WIDTH * 0.5,
+    borderRadius: (SCREEN_WIDTH * 0.5) / 2,
+    overflow: "hidden",
+    backgroundColor: "#333",
+    marginBottom: SCREEN_HEIGHT * 0.03,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+  },
 });
-
