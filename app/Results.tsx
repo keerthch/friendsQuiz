@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import { ActivityIndicator, View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
+import {
+  BannerAd,
+  BannerAdSize,
+  InterstitialAd,
+  AdEventType,
+} from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/4632023967";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/8032476251"; 
+
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -35,6 +42,8 @@ type LevelQuestion = {
 };
 
 type Props = NativeStackScreenProps<RootStackParamList, "Results">;
+// Initialize Interstitial Ad
+const interstitialAd = InterstitialAd.createForAdRequest(androidInterstitialAd);
 
 export default function Results({ route, navigation }: Props) {
   const { score, total, level, points, quizType, roomId, playerName, questions} = route.params;
@@ -45,9 +54,29 @@ export default function Results({ route, navigation }: Props) {
 
   const percentage = Math.round((score / (total * 10)) * 100);
 
+    // Load and show Interstitial Ad
+    useEffect(() => {
+      const showAdWithProbability = () => {
+        // 50% probability to show the ad
+        if (Math.random() < 0.5) {
+          interstitialAd.load();
+          interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
+            interstitialAd.show();
+          });
+          interstitialAd.addAdEventListener(AdEventType.ERROR, (error) =>
+            console.error("Interstitial ad failed to load:", error)
+          );
+        }
+      };
+  
+      // Show the ad when the Results screen is displayed
+      showAdWithProbability();
+    }, []);
+  
+
   // Determine the result color
   const getResultColor = () => {
-    if (percentage >= 85) return styles.resultGreen;
+    if (percentage >= 75) return styles.resultGreen;
     if (percentage > 60) return styles.resultYellow;
     return styles.resultRed;
   };
@@ -189,11 +218,15 @@ export default function Results({ route, navigation }: Props) {
           <Text style={styles.buttonLabel}>Retry</Text>
         </TouchableOpacity>
       </View>
+
+      <Text style={styles.unlockMessage1}>
+      The faster you answer, the more points you earn. 10 points at 10 seconds, decreasing over time.
+      </Text>
   
       {/* Unlock Next Level Message */}
-      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 85 && (
+      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 75 && (
         <Text style={styles.unlockMessage}>
-          Score greater than or equal to 85% to unlock the next level!
+          Score greater than or equal to 75% to unlock the next level! 
         </Text>
       )}
   
@@ -350,6 +383,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "bold",
     marginTop: 4,
+  },
+  unlockMessage1: {
+    marginTop: 22,
+    fontSize: 14,
+    color: "#fff",
+    textAlign: "center",
   },
   unlockMessage: {
     marginTop: 22,

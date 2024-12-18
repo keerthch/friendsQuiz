@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/4632023967";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -216,6 +216,17 @@ export default function Multiplayer({ navigation }: Props) {
           </TouchableOpacity>
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
+        <View style={styles.iconContainer}>
+        <TouchableOpacity
+          style={styles.circularButton1}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Ionicons name="home" size={20} color="#fff" />
+          <Text style={styles.buttonLabel}>Home</Text>
+        </TouchableOpacity>
+        </View>
+
+      
   
         <View style={styles.iconContainer}>
           <TouchableOpacity
@@ -336,6 +347,12 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: "center",
   },
+  buttonLabel: {
+    fontSize: 12,
+    color: "#fff",
+    fontWeight: "bold",
+    marginTop: 4,
+  },
   modalBackground: {
     flex: 1,
     justifyContent: "center",
@@ -355,6 +372,15 @@ const styles = StyleSheet.create({
     fontSize: SCREEN_WIDTH * 0.04,
     fontWeight: "bold",
     color: "#fff",
+  },
+  circularButton1: {
+    width: 60,
+    height: 60,
+    borderRadius: 40,
+    backgroundColor: "#123456",
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 10,
   },
   loadingContainer: {
     padding: 20,
