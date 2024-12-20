@@ -216,6 +216,15 @@ export default function Multiplayer({ navigation }: Props) {
           </TouchableOpacity>
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
+        <View style={styles.iconContainer}>
+        <TouchableOpacity
+          style={styles.circularButton1}
+          onPress={() => navigation.navigate("Home")}
+        >
+          <Ionicons name="home" size={20} color="#fff" />
+          <Text style={styles.buttonLabel}>Home</Text>
+        </TouchableOpacity>
+        </View>
   
         <View style={styles.iconContainer}>
           <TouchableOpacity
@@ -361,6 +370,21 @@ const styles = StyleSheet.create({
     backgroundColor: "#333",
     borderRadius: 10,
     alignItems: "center",
+  },
+  circularButton1: {
+    width: 60,
+    height: 60,
+    borderRadius: 40,
+    backgroundColor: "#123456",
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: 10,
+  },
+  buttonLabel: {
+    fontSize: 12,
+    color: "#fff",
+    fontWeight: "bold",
+    marginTop: 4,
   },
   loadingText: {
     marginTop: 10,

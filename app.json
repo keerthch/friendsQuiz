@@ -1,12 +1,12 @@
 {
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8141886191578873~8366061902",
+    "android_app_id": "ca-app-pub-8141886191578873~1647129364",
     "ios_app_id": "ca-app-pub-8141886191578873~1647129364"
   },
   "expo": {
     "name": "Friends Quiz",
     "slug": "bingebrain",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app_icon.png",
     "scheme": "myapp",

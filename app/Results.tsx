@@ -16,7 +16,7 @@ import {
 } from "react-native-google-mobile-ads";
 
 const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/9045873704"; 
+const androidInterstitialAd = "ca-app-pub-8141886191578873/9045873704";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -225,6 +225,18 @@ export default function Results({ route, navigation }: Props) {
           <Text style={styles.buttonLabel}>Retry</Text>
         </TouchableOpacity>
       </View>
+
+      <Text style={styles.unlockMessage1}>
+      The faster you answer, the more points you earn. 10 points at 10 seconds, decreasing over time.
+      </Text>
+  
+      {/* Unlock Next Level Message */}
+      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 75 && (
+        <Text style={styles.unlockMessage}>
+          Score greater than or equal to 75% to unlock the next level! 
+        </Text>
+      )}
+  
 
       {/* Ad Container */}
       <View style={styles.adContainer}>
@@ -440,5 +452,11 @@ const styles = StyleSheet.create({
   playerScore: {
     color: '#fff',
     fontSize: 14,
+  },
+  unlockMessage1: {
+    marginTop: 22,
+    fontSize: 14,
+    color: "#fff",
+    textAlign: "center",
   },
 });
