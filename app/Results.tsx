@@ -14,9 +14,10 @@ import {
   InterstitialAd,
   AdEventType,
 } from "react-native-google-mobile-ads";
+import NAMES from "../constants/names";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/7194037300";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/8423358492"; 
+const androidAdmobBanner = "ca-app-pub-8141886191578873/7116223675";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/7820028738"; 
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -73,6 +74,37 @@ export default function Results({ route, navigation }: Props) {
 
   const percentage = Math.round((score / (total * 10)) * 100);
 
+    // Generate random player names and scores
+    const generateRandomPlayers = () => {
+      const randomName = NAMES[Math.floor(Math.random() * NAMES.length)];
+      const names = [randomName]; // Only other random players here
+      const randomPlayers = [
+        { name: playerName || "You", score: score }, // Use the input player name and score
+        ...names.map((name) => ({
+          name,
+          score: Math.floor(Math.random() * (85 - 40 + 1)) + 40, // Random score between 60-85
+        })),
+      ];
+      return randomPlayers.sort((a, b) => b.score - a.score); // Sort by score descending
+    };
+    
+    useEffect(() => {
+      if (level === 15) {
+        setLoading(true);
+        const randomDelay = Math.floor(Math.random() * 10000); // Random delay between 0-10 seconds
+    
+        setTimeout(() => {
+          const randomPlayers = generateRandomPlayers();
+          setPlayers(randomPlayers);
+          setWinner(randomPlayers[0].name); // Set the winner as the player with the highest score
+          setLoading(false);
+        }, randomDelay);
+      }
+    }, [level, playerName, score]);
+    
+
+  
+
   // Load and show Interstitial Ad
   useEffect(() => {
     const showAdWithProbability = () => {
@@ -93,9 +125,9 @@ export default function Results({ route, navigation }: Props) {
   }, []);
 
   // Determine the result color
-  const getResultColor = () => {
-    if (percentage >= 80) return styles.resultGreen;
-    if (percentage > 60) return styles.resultYellow;
+  const getResultColor = (percentage: any) => {
+    if (percentage >= 70) return styles.resultGreen;
+    if (percentage > 50) return styles.resultYellow;
     return styles.resultRed;
   };
 
@@ -151,24 +183,41 @@ export default function Results({ route, navigation }: Props) {
 
   return (
     <View style={styles.container}>
-      {/* Winner Announcement */}
-      {quizType === "multiplayer" && (
+      {/* Level 15 Multiplayer Result */}
+      {level === 15 && (
         <View style={styles.winnerContainer}>
-          {winner ? (
-            <Text style={styles.winnerText}>{`${winner} won the quiz!`}</Text>
-          ) : loading ? (
-            <Text style={styles.loadingText}>Checking for a winner...</Text>
+          {loading ? (
+            <Text style={styles.loadingText}>Fetching results...</Text>
           ) : (
-            <Text style={styles.waitingText}>Waiting for the game to finish...</Text>
+            <>
+              <View style={styles.multiplayerContainer}>
+                {players.map((player, index) => (
+                  <View key={index} style={styles.multiplayerPlayerCard}>
+                    <View
+                      style={[
+                        styles.multiplayerPercentageContainer,
+                        getResultColor(player.score),
+                      ]}
+                    >
+                      <Text style={styles.multiplayerPercentageText}>
+                        {`${player.score}%`}
+                      </Text>
+                    </View>
+                    <Text style={styles.multiplayerDetails}>{player.name}</Text>
+                  </View>
+                ))}
+              </View>
+              <Text style={styles.winnerText}>{`${winner} won the quiz!`}</Text>
+            </>
           )}
         </View>
       )}
 
       {/* Single Player Mode */}
-      {quizType !== "multiplayer" && (
+      {level !== 15 && quizType !== "multiplayer" && (
         <View style={styles.singlePlayerContainer}>
           <View
-            style={[styles.singlePlayerPercentageContainer, getResultColor()]}
+            style={[styles.singlePlayerPercentageContainer, getResultColor(percentage)]}
           >
             <Text style={styles.singlePlayerPercentageText}>
               {`${percentage}%`}
@@ -177,29 +226,6 @@ export default function Results({ route, navigation }: Props) {
           <Text
             style={styles.singlePlayerDetails}
           >{`You scored ${score} out of ${total * 10}`}</Text>
-        </View>
-      )}
-
-      {/* Multiplayer Mode */}
-      {quizType === "multiplayer" && players.length > 0 && (
-        <View style={styles.multiplayerContainer}>
-          {players
-            .sort((a, b) => b.score - a.score)
-            .map((player, index) => (
-              <View key={index} style={styles.multiplayerPlayerCard}>
-                <View
-                  style={[
-                    styles.multiplayerPercentageContainer, // Multiplayer-specific styling
-                    getResultColor(),
-                  ]}
-                >
-                  <Text style={styles.multiplayerPercentageText}>
-                    {`${player.score}`}
-                  </Text>
-                </View>
-                <Text style={styles.multiplayerDetails}>{`${player.name}`}</Text>
-              </View>
-            ))}
         </View>
       )}
 
@@ -226,12 +252,13 @@ export default function Results({ route, navigation }: Props) {
         </TouchableOpacity>
       </View>
 
+
       <Text style={styles.unlockMessage1}>
       The faster you answer, the more points you earn. 10 points at 10 seconds, decreasing over time.
       </Text>
   
       {/* Unlock Next Level Message */}
-      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 75 && (
+      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 70 && level !== 15&& (
         <Text style={styles.unlockMessage}>
           Score greater than or equal to 75% to unlock the next level! 
         </Text>

@@ -1,6 +1,6 @@
 {
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8141886191578873~4096266529",
+    "android_app_id": "ca-app-pub-8141886191578873~1150678604",
     "ios_app_id": "ca-app-pub-8141886191578873~4096266529"
   },
   "expo": {
@@ -14,14 +14,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.keerthch.ipl"
+      "bundleIdentifier": "com.keerthch.IPL"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app_icon.png", 
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.keerthch.ipl"
+      "package": "com.keerthch.IPL"
     },
     "web": {
       "bundler": "metro",

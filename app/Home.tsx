@@ -45,6 +45,7 @@ export default function Home({ navigation }: Props) {
   const [unlockedLevels, setUnlockedLevels] = useState<number>(1);
   const [modalVisible, setModalVisible] = useState(false);
   const[isVisible, setisVisible] = useState(false)
+  const [level, setLevel] = useState<number | null>(null); 
 
   useEffect(() => {
     const loadUnlockedLevels = async () => {
@@ -62,13 +63,14 @@ export default function Home({ navigation }: Props) {
   }, []);
 
   const handleStartQuiz = async (level: number) => {
-    if (level > unlockedLevels) {
+    if (level > unlockedLevels && level < 11) {
       Alert.alert(
         "Locked Level",
         "You must unlock this level by completing the previous one."
       );
     } else {
       try {
+        setLevel(level);
         // Show a loading indicator while fetching questions
         setisVisible(true)
         // Fetch questions from the API
@@ -81,17 +83,33 @@ export default function Home({ navigation }: Props) {
         }
   
         const data = await response.json();
-  
+        // Check if level is 15, and wait for 3-5 seconds before navigation
+        if (level === 15) {
+       
+          const delayInSeconds = Math.random() * 4 + 1; // Random delay between 3 and 5 seconds
+          const delayInMilliseconds = Math.round(delayInSeconds * 1000);
+          const startTime = Date.now();
+        
+          setTimeout(() => {
+            const endTime = Date.now();
+            navigation.navigate("Quiz", { level, questions: data.questions });
+            setisVisible(false)
+          }, delayInMilliseconds);
+      
+          
+        } else {
+          // Navigate to the Quiz component with the questions
+          navigation.navigate("Quiz", { level, questions: data.questions });
+          setisVisible(false)
+        }
         // Navigate to the Quiz component with the questions
-        navigation.navigate("Quiz", { level, questions: data.questions });
+        
       } catch (error) {
         setisVisible(false)
         // Handle errors
         Alert.alert("Error", `Failed to fetch questions: `);
       } finally {
-        setisVisible(false)
-        // Hide loading indicator
-
+    
       }
     }
   };
@@ -111,6 +129,11 @@ export default function Home({ navigation }: Props) {
   const handleMultiplayer = () => {
     navigation.navigate("Multiplayer");
   };
+
+  const handleRandomOpponent = () => {
+    handleStartQuiz(15);
+  };
+
 
 
 
@@ -149,16 +172,20 @@ export default function Home({ navigation }: Props) {
 
     
     <View style={styles.container}>
-       {true && (
-        <Modal transparent={true} animationType="fade" visible={isVisible}>
-          <View style={styles.modalBackground}>
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#3CB371" />
-              <Text style={styles.loadingText}>Starting! 🚀</Text>
-            </View>
+    {true && (
+      <Modal transparent={true} animationType="fade" visible={isVisible}>
+        <View style={styles.modalBackground}>
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#3CB371" />
+            <Text style={styles.loadingText}>
+              {level === 15 ? "Finding player... 🔍" : "Starting! 🚀"}
+            </Text>
           </View>
-        </Modal>
-      )}
+        </View>
+      </Modal>
+    )}
+
+  
 
       {/* Rules Icon */}
       <TouchableOpacity
@@ -180,26 +207,34 @@ export default function Home({ navigation }: Props) {
       {/* Title */}
       <Text style={styles.title}>IPL Quiz</Text>
 
-      {/* Guess the Quote and Multiplayer */}
-      <View style={styles.buttonRow}>
-        <TouchableOpacity
-          style={[styles.levelButton, styles.blueButton]}
-          onPress={handleGuessTheQuote}
-        >
-          <Text >Guess the Team</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.levelButton, styles.blueButton]}
-          onPress={handleMultiplayer}
-        >
-          <Text>Multiplayer</Text>
-        </TouchableOpacity>
+ {/* Guess the Quote and Multiplayer */}
+<View style={styles.buttonRow}>
+  <TouchableOpacity
+    style={[styles.levelButton, styles.blueButton]}
+    onPress={handleGuessTheQuote}
+  >
+    <Text>Guess the Team</Text>
+  </TouchableOpacity>
+  <TouchableOpacity
+    style={[styles.levelButton, styles.blueButton]}
+    onPress={handleMultiplayer}
+  >
+    <Text>Multiplayer</Text>
+  </TouchableOpacity>
+  <TouchableOpacity
+    style={[styles.levelButton, styles.blueButton]}
+    onPress={handleRandomOpponent}
+  >
+    <Text>Random Opponent</Text>
+  </TouchableOpacity>
+</View>
+
+
 
         
 
 
 
-      </View>
      
 
       {/* Levels */}
@@ -223,7 +258,7 @@ export default function Home({ navigation }: Props) {
               points will be 10, and they decrease with time.
             </Text>
             <Text style={styles.modalText}>
-              3. To move to the next level, you must score above 80%.
+              3. To move to the next level, you must score above 70%.
             </Text>
             <Text style={styles.modalText}>
               4. A new set of quotes is generated every time you play "Guess the
@@ -280,10 +315,27 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: "90%",
+    flexWrap: "wrap", // Allows buttons to wrap to the next line if needed
+    justifyContent: "space-around", // Distribute buttons with space between them
+    alignItems: "center",
+    width: "100%",
     marginBottom: 50,
+    paddingHorizontal: 0,
   },
+  
+  levelButton: {
+    width: "30%",
+    height: SCREEN_HEIGHT * 0.075,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 3,
+    backgroundColor: "#4caf50",
+  },
+  
   circularButtonRow: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -326,24 +378,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#cccccc", // Gray for locked levels
   },
   blueButton: {
-    backgroundColor: "#ffff", // Blue for Guess the Quote and Multiplayer
+    backgroundColor: "#fff", // Replace with your preferred button color
   },
   buttonText: {
     fontSize: SCREEN_WIDTH * 0.035,
     fontWeight: "bold",
     color: "#fff",
     textAlign: "center",
-  },
-  levelButton: {
-    width: "45%",
-    height: SCREEN_HEIGHT * 0.08,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 3,
   },
   levelsContainer: {
     width: "100%",
