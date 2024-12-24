@@ -45,6 +45,7 @@ export default function Home({ navigation }: Props) {
   const [unlockedLevels, setUnlockedLevels] = useState<number>(1);
   const [modalVisible, setModalVisible] = useState(false);
   const[isVisible, setisVisible] = useState(false)
+  const [level, setLevel] = useState<number | null>(null); 
 
   useEffect(() => {
     const loadUnlockedLevels = async () => {
@@ -62,13 +63,14 @@ export default function Home({ navigation }: Props) {
   }, []);
 
   const handleStartQuiz = async (level: number) => {
-    if (level > unlockedLevels) {
+    if (level > unlockedLevels && level < 11) {
       Alert.alert(
         "Locked Level",
         "You must unlock this level by completing the previous one."
       );
     } else {
       try {
+        setLevel(level);
         // Show a loading indicator while fetching questions
         setisVisible(true)
         // Fetch questions from the API
@@ -79,8 +81,23 @@ export default function Home({ navigation }: Props) {
         if (!response.ok) {
           throw new Error(`Error fetching questions: ${response.status}`);
         }
-  
+
         const data = await response.json();
+        // Check if level is 15, and wait for 3-5 seconds before navigation
+        if (level === 15) {
+          const delayInSeconds = Math.random() * 2 + 3; // Random delay between 3 and 5 seconds
+          const delayInMilliseconds = Math.round(delayInSeconds * 1000); // Convert seconds to milliseconds
+      
+          // Use a Promise to wait for the delay
+          await new Promise((resolve) => setTimeout(resolve, delayInMilliseconds));
+      
+          navigation.navigate("Quiz", { level, questions: data.questions }); // Navigate after delay
+          setisVisible(false); // Update visibility after delay
+        }  else {
+          // Navigate to the Quiz component with the questions
+          navigation.navigate("Quiz", { level, questions: data.questions });
+          setisVisible(false)
+        }
   
         // Navigate to the Quiz component with the questions
         navigation.navigate("Quiz", { level, questions: data.questions });
@@ -89,11 +106,13 @@ export default function Home({ navigation }: Props) {
         // Handle errors
         Alert.alert("Error", `Failed to fetch questions: `);
       } finally {
-        setisVisible(false)
         // Hide loading indicator
 
       }
     }
+  };
+  const handleRandomOpponent = () => {
+    handleStartQuiz(15);
   };
   
 
@@ -148,18 +167,19 @@ export default function Home({ navigation }: Props) {
 
   return  (
 
-    
     <View style={styles.container}>
-       {true && (
-        <Modal transparent={true} animationType="fade" visible={isVisible}>
-          <View style={styles.modalBackground}>
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#3CB371" />
-              <Text style={styles.loadingText}>Starting! 🚀</Text>
-            </View>
+    {true && (
+      <Modal transparent={true} animationType="fade" visible={isVisible}>
+        <View style={styles.modalBackground}>
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#3CB371" />
+            <Text style={styles.loadingText}>
+              {level === 15 ? "Finding player... 🔍" : "Starting! 🚀"}
+            </Text>
           </View>
-        </Modal>
-      )}
+        </View>
+      </Modal>
+    )}
 
       {/* Rules Icon */}
       <TouchableOpacity
@@ -196,6 +216,13 @@ export default function Home({ navigation }: Props) {
           <Text>Multiplayer</Text>
         </TouchableOpacity>
 
+        <TouchableOpacity
+    style={[styles.levelButton, styles.blueButton]}
+    onPress={handleRandomOpponent}
+  >
+    <Text>Random Opponent</Text>
+  </TouchableOpacity>
+
         
 
 
@@ -224,7 +251,7 @@ export default function Home({ navigation }: Props) {
               points will be 10, and they decrease with time.
             </Text>
             <Text style={styles.modalText}>
-              3. To move to the next level, you must score above 75%.
+              3. To move to the next level, you must score above 70%.
             </Text>
             <Text style={styles.modalText}>
               4. A new set of questions is generated every time you play "Guess the
@@ -281,9 +308,12 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    width: "90%",
+    flexWrap: "wrap", // Allows buttons to wrap to the next line if needed
+    justifyContent: "space-around", // Distribute buttons with space between them
+    alignItems: "center",
+    width: "100%",
     marginBottom: 50,
+    paddingHorizontal: 0,
   },
   circularButtonRow: {
     flexDirection: "row",
@@ -336,8 +366,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   levelButton: {
-    width: "45%",
-    height: SCREEN_HEIGHT * 0.08,
+    width: "30%",
+    height: SCREEN_HEIGHT * 0.075,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 10,
@@ -345,7 +375,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 5,
     elevation: 3,
+    backgroundColor: "#4caf50",
   },
+  
+
   levelsContainer: {
     width: "100%",
     alignItems: "center",

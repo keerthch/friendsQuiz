@@ -1,12 +1,12 @@
 {
   "react-native-google-mobile-ads": {
-    "android_app_id": "ca-app-pub-8141886191578873~2208174638",
+    "android_app_id": "ca-app-pub-8141886191578873~7070592840",
     "ios_app_id": "ca-app-pub-8141886191578873~2208174638"
   },
   "expo": {
     "name": "F1 Quiz",
     "slug": "bingebrain",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
