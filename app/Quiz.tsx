@@ -167,7 +167,7 @@ export default function Quiz({ route, navigation }: Props) {
         (await AsyncStorage.getItem("unlockedLevels")) || "1",
         10
       );
-      if (percentage >= 80 && level >= savedLevels) {
+      if (percentage >= 70 && level >= savedLevels) {
         await AsyncStorage.setItem("unlockedLevels", (level + 1).toString());
       }
     }

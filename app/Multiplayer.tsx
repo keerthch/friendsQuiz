@@ -74,8 +74,9 @@ export default function Multiplayer({ navigation }: Props) {
           body: JSON.stringify({ action: "create", playerName }),
         }
       );
-      const data = await response.json();
 
+      
+      const data = await response.json();
       if (data.success) {
         setRoomId(data.roomId); // Save the room ID
         setQuestions(data.questions); // Save questions
@@ -121,7 +122,7 @@ export default function Multiplayer({ navigation }: Props) {
             });
         }, 3000); // Display for 3 seconds
       } else {
-        Alert.alert("Error", data.message || "Failed to join room.");
+        Alert.alert("Error", data.message || "Failed to josin room.");
       }
     } catch (error) {
       console.error(error);
@@ -244,27 +245,37 @@ export default function Multiplayer({ navigation }: Props) {
         </Text>
       )}
   
-      {/* Room Details Modal */}
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isModalVisible}
-        onRequestClose={() => setIsModalVisible(false)}
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <Text style={styles.roomIdText}>Room ID: {roomId}</Text>
-            <Ionicons
-              name="person-circle"
-              size={SCREEN_WIDTH * 0.15}
-              color="#fff"
-              style={styles.icon}
-            />
-            <Text style={styles.playerText}>{playerName}</Text>
-            <Text style={styles.waitingText}>Your opponent is on their way...</Text>
-          </View>
-        </View>
-      </Modal>
+    {/* Room Details Modal */}
+<Modal
+  animationType="slide"
+  transparent={true}
+  visible={isModalVisible}
+  onRequestClose={() => setIsModalVisible(false)}
+>
+  <View style={styles.modalContainer}>
+    <View style={styles.modalContent}>
+      {/* Cancel Button */}
+      <Ionicons
+        name="close-circle"
+        size={SCREEN_WIDTH * 0.06}
+        color="#ADD8E6"
+        style={styles.cancelIcon}
+        onPress={() => setIsModalVisible(false)}
+      />
+      <Text style={styles.roomIdText}>ID: {roomId} </Text>
+      <Text style={styles.roomIdText1}>Invite your friend to join the game with the above ID</Text>
+      <Ionicons
+        name="person-circle"
+        size={SCREEN_WIDTH * 0.15}
+        color="#fff"
+        style={styles.icon}
+      />
+      <Text style={styles.playerText}>{playerName}</Text>
+      <Text style={styles.waitingText}>Your opponent is on their way...</Text>
+    </View>
+  </View>
+</Modal>
+
   
       {/* Ad Container */}
       <View style={styles.adContainer}>
@@ -345,6 +356,14 @@ const styles = StyleSheet.create({
   iconContainer: {
     alignItems: "center",
   },
+  cancelIcon: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: '#1a1a2e', // Matches modal background
+    borderRadius: 20,       // Makes it circular
+    padding: 2,             // Adds spacing around the icon
+  },
   modalBackground: {
     flex: 1,
     justifyContent: "center",
@@ -424,16 +443,21 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "80%",
-    padding: 20,
+    padding: 15,
     backgroundColor: "#1a1a2e",
-    borderRadius: 10,
+    borderRadius: 15,
     alignItems: "center",
   },
   roomIdText: {
     fontSize: SCREEN_WIDTH * 0.06,
     fontWeight: "bold",
     color: "#ADD8E6",
-    marginBottom: 20,
+    marginBottom: 10,
+  },
+  roomIdText1: {
+    fontSize: SCREEN_WIDTH * 0.030,
+    color: "#ADD8E6",
+    marginBottom: 10,
   },
   playerText: {
     fontSize: SCREEN_WIDTH * 0.05,
