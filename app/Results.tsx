@@ -16,8 +16,8 @@ import {
 } from "react-native-google-mobile-ads";
 import NAMES from "../constants/names";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/4632023967";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/8032476251";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/5854843391";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/4541761721";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -89,7 +89,7 @@ export default function Results({ route, navigation }: Props) {
     };
     
     useEffect(() => {
-      if (level === 15) {
+      if (level ===15 || level === 16 || level === 17 || level === 18) {
         setLoading(true);
         const randomDelay = Math.floor(Math.random() * 10000); // Random delay between 0-10 seconds
     
@@ -173,7 +173,7 @@ export default function Results({ route, navigation }: Props) {
 
     // Call immediately and then every 15 seconds
     checkWinner();
-    interval = setInterval(checkWinner, 15000);
+    interval = setInterval(checkWinner, 10000);
 
     // Cleanup interval on unmount
     return () => {
@@ -184,7 +184,7 @@ export default function Results({ route, navigation }: Props) {
   return (
     <View style={styles.container}>
       {/* Level 15 Multiplayer Result */}
-      {level === 15 && (
+      {(level ===15 || level === 16 || level === 17 || level === 18 || quizType === "multiplayer") && (
         <View style={styles.winnerContainer}>
           {loading ? (
             <Text style={styles.loadingText}>Fetching results...</Text>
@@ -214,7 +214,7 @@ export default function Results({ route, navigation }: Props) {
       )}
 
       {/* Single Player Mode */}
-      {level !== 15 && quizType !== "multiplayer" && (
+      {level !== 15 && level !== 16 && level !== 17 && level !== 18 && quizType !== "multiplayer" && (
         <View style={styles.singlePlayerContainer}>
           <View
             style={[styles.singlePlayerPercentageContainer, getResultColor(percentage)]}
@@ -239,17 +239,6 @@ export default function Results({ route, navigation }: Props) {
           <Text style={styles.buttonLabel}>Home</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[
-            styles.circularButton,
-            level === undefined && styles.disabledButton,
-          ]}
-          onPress={() => navigation.navigate("Quiz", { level, questions })}
-          disabled={level === undefined}
-        >
-          <Ionicons name="refresh" size={28} color="#fff" />
-          <Text style={styles.buttonLabel}>Retry</Text>
-        </TouchableOpacity>
       </View>
 
 
@@ -258,7 +247,7 @@ export default function Results({ route, navigation }: Props) {
       </Text>
   
       {/* Unlock Next Level Message */}
-      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 70 && level !== 15&& (
+      {quizType !== "multiplayer"  && quizType !== "quote" && percentage < 70 && level != undefined && level < 15 && (
         <Text style={styles.unlockMessage}>
           Score greater than or equal to 70% to unlock the next level! 
         </Text>

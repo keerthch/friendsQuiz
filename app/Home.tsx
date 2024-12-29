@@ -84,8 +84,8 @@ export default function Home({ navigation }: Props) {
 
         const data = await response.json();
         // Check if level is 15, and wait for 3-5 seconds before navigation
-        if (level === 15) {
-          const delayInSeconds = Math.random() * 2 + 3; // Random delay between 3 and 5 seconds
+        if (level === 15 || level === 16 || level === 17 || level === 18) {
+          const delayInSeconds = Math.random() * 2 + 1; // Random delay between 3 and 5 seconds
           const delayInMilliseconds = Math.round(delayInSeconds * 1000); // Convert seconds to milliseconds
       
           // Use a Promise to wait for the delay
@@ -112,15 +112,23 @@ export default function Home({ navigation }: Props) {
     }
   };
   const handleRandomOpponent = () => {
-    handleStartQuiz(15);
+    // Array of possible numbers
+    const possibleNumbers = [15, 16, 17, 18];
+  
+    // Generate a random index to pick a number from the array
+    const randomNumber = possibleNumbers[Math.floor(Math.random() * possibleNumbers.length)];
+  
+    // Pass the random number to handleStartQuiz
+    handleStartQuiz(randomNumber);
   };
+  
   
 
   const handleGuessTheQuote = () => {
     if (unlockedLevels < 5) {
       Alert.alert(
         "Locked Feature",
-        "You need to unlock Level 5 to access 'Guess the Quote.'"
+        "You need to unlock Level 5 to access 'Guess the Team.'"
       );
     } else {
       navigation.navigate("Quiz", { isQuoteQuiz: true });
@@ -174,7 +182,7 @@ export default function Home({ navigation }: Props) {
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#3CB371" />
             <Text style={styles.loadingText}>
-              {level === 15 ? "Finding player... 🔍" : "Starting! 🚀"}
+            {(level === 15  || level === 16 || level === 17 || level === 18) ?  "Finding player... 🔍" : "Starting! 🚀"}
             </Text>
           </View>
         </View>
@@ -258,7 +266,7 @@ export default function Home({ navigation }: Props) {
               Team."
             </Text>
             <Text style={styles.modalText}>
-              5. Unlock level 5 to enjoy "Guess the Quote" anytime, even without an internet connection! 😊
+              5. Unlock level 5 to enjoy "Guess the Team" anytime, even without an internet connection! 😊
             </Text>
             <TouchableOpacity
               style={styles.closeButton}
