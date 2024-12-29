@@ -84,7 +84,7 @@ export default function Home({ navigation }: Props) {
   
         const data = await response.json();
         // Check if level is 15, and wait for 3-5 seconds before navigation
-        if (level === 15) {
+        if (level === 15 || level === 16 || level === 17 || level === 18) {
        
           const delayInSeconds = Math.random() * 4 + 1; // Random delay between 3 and 5 seconds
           const delayInMilliseconds = Math.round(delayInSeconds * 1000);
@@ -119,7 +119,7 @@ export default function Home({ navigation }: Props) {
     if (unlockedLevels < 5) {
       Alert.alert(
         "Locked Feature",
-        "You need to unlock Level 5 to access 'Guess the Quote.'"
+        "You need to unlock Level 5 to access 'Guess the Team.'"
       );
     } else {
       navigation.navigate("Quiz", { isQuoteQuiz: true });
@@ -131,7 +131,13 @@ export default function Home({ navigation }: Props) {
   };
 
   const handleRandomOpponent = () => {
-    handleStartQuiz(15);
+    const possibleNumbers = [15, 16, 17, 18];
+  
+    // Generate a random index to pick a number from the array
+    const randomNumber = possibleNumbers[Math.floor(Math.random() * possibleNumbers.length)];
+  
+    // Pass the random number to handleStartQuiz
+    handleStartQuiz(randomNumber);
   };
 
 
@@ -178,7 +184,7 @@ export default function Home({ navigation }: Props) {
           <View style={styles.loadingContainer}>
             <ActivityIndicator size="large" color="#3CB371" />
             <Text style={styles.loadingText}>
-              {level === 15 ? "Finding player... 🔍" : "Starting! 🚀"}
+            {(level === 15  || level === 16 || level === 17 || level === 18) ?  "Finding player... 🔍" : "Starting! 🚀"}
             </Text>
           </View>
         </View>
@@ -229,13 +235,6 @@ export default function Home({ navigation }: Props) {
   </TouchableOpacity>
 </View>
 
-
-
-        
-
-
-
-     
 
       {/* Levels */}
       <View style={styles.levelsContainer}>{renderLevels()}</View>

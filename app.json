@@ -6,7 +6,7 @@
   "expo": {
     "name": "IPL Quiz",
     "slug": "bingebrain",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/app_icon.png",
     "scheme": "myapp",
@@ -14,14 +14,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.keerthch.IPL"
+      "bundleIdentifier": "com.keerthch.ipl"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/app_icon.png", 
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.keerthch.IPL"
+      "package": "com.keerthch.ipl"
     },
     "web": {
       "bundler": "metro",
