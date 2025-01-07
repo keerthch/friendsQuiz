@@ -4,6 +4,8 @@ import Home from "../Home";
 import Quiz from "../Quiz";
 import Results from "../Results";
 import Multiplayer from "../Multiplayer";
+import Challenge from "../Challenge";
+import Leaderboard from "../LeaderBoard";
 
 type QuizType = 'single' | 'multiplayer' | 'quote';
 
@@ -20,6 +22,7 @@ type LevelQuestion = {
 
 type RootStackParamList = {
   Home: { unlockedLevel?: number };
+  Leaderboard: undefined
   Quiz : { 
     level?: number; 
     isQuoteQuiz?: boolean; 
@@ -27,6 +30,7 @@ type RootStackParamList = {
     quizType: QuizType; // Add this property
 };
   Multiplayer: undefined;
+  Challenge: undefined;
   Results: { score: number; total: number; level?: number; points: number,  quizType: QuizType,  questions?: (QuoteQuestion | LevelQuestion)[]; };
 };
 
@@ -70,6 +74,23 @@ export default function Layout() {
        <Stack.Screen
         name="Multiplayer"
         component={Multiplayer}
+        options={{
+          headerShown: false, // Hide the header if you want a clean UI
+        }}
+      />
+
+<Stack.Screen
+        name="Challenge"
+        component={Challenge}
+        options={{
+          headerShown: false, // Hide the header if you want a clean UI
+        }}
+      />
+
+
+<Stack.Screen
+        name="Leaderboard"
+        component={Leaderboard}
         options={{
           headerShown: false, // Hide the header if you want a clean UI
         }}

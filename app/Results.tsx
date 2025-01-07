@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   View,
   Text,
+  Alert,
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
@@ -15,6 +16,7 @@ import {
   AdEventType,
 } from "react-native-google-mobile-ads";
 import NAMES from "../constants/names";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const androidAdmobBanner = "ca-app-pub-8141886191578873/5854843391";
 const androidInterstitialAd = "ca-app-pub-8141886191578873/4541761721";
@@ -101,8 +103,51 @@ export default function Results({ route, navigation }: Props) {
         }, randomDelay);
       }
     }, [level, playerName, score]);
-    
 
+    
+    const handleLevelCompletion = async () => {
+      if (level === 100) {
+        try {
+          console.log('lebel ==== 10000')
+          const storedName = await AsyncStorage.getItem("name");
+          const storedEmail = await AsyncStorage.getItem("email");
+  
+          if (!storedName || !storedEmail) {
+            throw new Error("Name or email not found in AsyncStorage.");
+          }
+  
+          const payload = {
+            action: "weeklyScore",
+            name: storedName,
+            email: storedEmail,
+            score,
+          };
+  
+          console.log("Submitting payload:", payload);
+  
+          const response = await fetch("https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          });
+  
+          if (!response.ok) {
+            throw new Error(`Failed to submit score: ${response.status}`);
+          }
+  
+          const result = await response.json();
+          console.log("Score submission successful:", result);
+  
+          Alert.alert("Success", "Your score has been submitted!");
+        } catch (error) {
+          console.error("Error submitting score:", error);
+          Alert.alert("Error", "Failed to submit your score. Please try again.");
+        }
+      }
+    };
+    handleLevelCompletion();
   
 
   // Load and show Interstitial Ad

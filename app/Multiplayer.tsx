@@ -67,7 +67,7 @@ export default function Multiplayer({ navigation }: Props) {
 
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://4mwjct0udi.execute-api.ap-south-1.amazonaws.com/prod/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -99,7 +99,7 @@ export default function Multiplayer({ navigation }: Props) {
   
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://4mwjct0udi.execute-api.ap-south-1.amazonaws.com/prod/",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -137,7 +137,7 @@ export default function Multiplayer({ navigation }: Props) {
     const interval = setInterval(async () => {
       try {
         const response = await fetch(
-          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+          "https://4mwjct0udi.execute-api.ap-south-1.amazonaws.com/prod/",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

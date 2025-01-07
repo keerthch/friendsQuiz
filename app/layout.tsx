@@ -4,6 +4,8 @@ import Home from "./Home";
 import Quiz from "./Quiz";
 import Results from "./Results";
 import Multiplayer from "./Multiplayer";
+import Challenge  from "./Challenge";
+import Leaderboard from "./LeaderBoard";
 import mobileAds from 'react-native-google-mobile-ads';
 
 type QuizType = 'single' | 'multiplayer' | 'quote';
@@ -28,7 +30,9 @@ type RootStackParamList = {
     questions?: (QuoteQuestion | LevelQuestion)[]; 
     quizType: QuizType; // Add this property
 };
+Leaderboard: undefined
   Multiplayer: undefined
+  Challenge: undefined
   Results: { score: number; total: number; level?: number; points: number, quizType: QuizType };
 };
 
@@ -43,6 +47,8 @@ export default function Layout() {
       <Stack.Screen name="Quiz" component={Quiz} />
       <Stack.Screen name="Results" component={Results} />
       <Stack.Screen name="Multiplayer" component={Multiplayer} />
+      <Stack.Screen name="Challenge" component={Challenge} />
+      <Stack.Screen name="Leaderboard" component={Leaderboard} />
     </Stack.Navigator>
   );
 }

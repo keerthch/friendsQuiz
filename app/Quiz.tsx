@@ -27,7 +27,7 @@ type RootStackParamList = {
 };
 
   Results: { score: number; total: number; level?: number; points: number, quizType: QuizType, roomId?: string, 
-    playerName?: string, questions?: (QuoteQuestion | LevelQuestion)[];  };
+    playerName?: string, questions?: (QuoteQuestion | LevelQuestion)[];     name?: string; email?: string  };
 };
 
 

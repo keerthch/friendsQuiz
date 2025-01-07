@@ -19,6 +19,7 @@ const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 type RootStackParamList = {
   Home: undefined;
+  Challenge: undefined;
   Multiplayer: undefined;
   Quiz: { level?: number; isQuoteQuiz?: boolean; questions?: (QuoteQuestion | LevelQuestion)[];   };
   Results: { score: number; total: number; level?: number };
@@ -122,18 +123,21 @@ export default function Home({ navigation }: Props) {
     handleStartQuiz(randomNumber);
   };
   
+
+
   
 
-  const handleGuessTheQuote = () => {
-    if (unlockedLevels < 5) {
+  const handleWeeklyChallenge = () => {
+    if (unlockedLevels < 2) {
       Alert.alert(
         "Locked Feature",
         "You need to unlock Level 5 to access 'Guess the Team.'"
       );
     } else {
-      navigation.navigate("Quiz", { isQuoteQuiz: true });
+      navigation.navigate("Challenge");
     }
   };
+  
 
 
   const handleMultiplayer = () => {
@@ -207,15 +211,15 @@ export default function Home({ navigation }: Props) {
       </View>
 
       {/* Title */}
-      <Text style={styles.title}>F1 Trivia Quiz </Text>
+      <Text style={styles.title}>Formula Racing Quiz </Text>
 
       {/* Guess the Quote and Multiplayer */}
       <View style={styles.buttonRow}>
         <TouchableOpacity
           style={[styles.levelButton, styles.blueButton]}
-          onPress={handleGuessTheQuote}
+          onPress={handleWeeklyChallenge}
         >
-          <Text >Guess the Team</Text>
+          <Text >Weekly Challenge</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.levelButton, styles.blueButton]}
