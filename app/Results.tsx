@@ -16,8 +16,8 @@ import {
 } from "react-native-google-mobile-ads";
 import NAMES from "../constants/names";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/9045873704";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/5682247727";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/3681641040";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -109,7 +109,7 @@ export default function Results({ route, navigation }: Props) {
   useEffect(() => {
     const showAdWithProbability = () => {
       // 50% probability to show the ad
-      if (Math.random() < 0.5) {
+      if (Math.random() < 0.6) {
         interstitialAd.load();
         interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
           interstitialAd.show();

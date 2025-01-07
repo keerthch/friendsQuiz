@@ -14,7 +14,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/4378401778";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/5682247727";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
