@@ -18,8 +18,8 @@ import {
 import NAMES from "../constants/names";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/5854843391";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/4541761721";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/4632023967";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/8032476251";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
@@ -30,6 +30,7 @@ type RootStackParamList = {
     isQuoteQuiz?: boolean;
     questions?: (QuoteQuestion | LevelQuestion)[];
   };
+  Challenge: undefined;
   Results: {
     score: number;
     total: number;
@@ -108,7 +109,6 @@ export default function Results({ route, navigation }: Props) {
     const handleLevelCompletion = async () => {
       if (level === 100) {
         try {
-          console.log('lebel ==== 10000')
           const storedName = await AsyncStorage.getItem("name");
           const storedEmail = await AsyncStorage.getItem("email");
   
@@ -123,7 +123,7 @@ export default function Results({ route, navigation }: Props) {
             score,
           };
   
-          console.log("Submitting payload:", payload);
+    
   
           const response = await fetch("https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/", {
             method: "POST",
@@ -138,9 +138,7 @@ export default function Results({ route, navigation }: Props) {
           }
   
           const result = await response.json();
-          console.log("Score submission successful:", result);
   
-          Alert.alert("Success", "Your score has been submitted!");
         } catch (error) {
           console.error("Error submitting score:", error);
           Alert.alert("Error", "Failed to submit your score. Please try again.");
@@ -283,6 +281,15 @@ export default function Results({ route, navigation }: Props) {
           <Ionicons name="home" size={28} color="#fff" />
           <Text style={styles.buttonLabel}>Home</Text>
         </TouchableOpacity>
+
+         {/* Challenge Button */}
+  <TouchableOpacity
+    style={styles.circularButton}
+    onPress={() => navigation.navigate("Challenge")}
+  >
+    <Ionicons name="trophy-outline" size={28} color="#fff" />
+    <Text style={styles.buttonLabel}>Challenge</Text>
+  </TouchableOpacity>
 
       </View>
 
@@ -432,8 +439,8 @@ const styles = StyleSheet.create({
   },
   
   circularButton: {
-    width: 60,
-    height: 60,
+    width: 75,
+    height: 75,
     borderRadius: 40,
     backgroundColor: "#4caf50",
     justifyContent: "center",

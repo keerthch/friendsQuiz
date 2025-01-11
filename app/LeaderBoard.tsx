@@ -7,6 +7,15 @@ import {
   ActivityIndicator,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import {
+  BannerAd,
+  BannerAdSize,
+  InterstitialAd,
+  AdEventType,
+} from "react-native-google-mobile-ads";
+
+const androidAdmobBanner = "ca-app-pub-8141886191578873/4632023967";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/8032476251";
 
 type RootStackParamList = {
   Home: undefined;
@@ -27,19 +36,52 @@ const Leaderboard = () => {
   const [quizPlayers, setQuizPlayers] = useState([]);
   const [loadingWeekly, setLoadingWeekly] = useState(true);
   const [loadingQuiz, setLoadingQuiz] = useState(true);
+  const interstitialAd = InterstitialAd.createForAdRequest(androidInterstitialAd);
+  
 
+    // Load and show Interstitial Ad
+    useEffect(() => {
+      const showAdWithProbability = () => {
+        // 40% probability to show the ad
+        if (Math.random() < 0.4) {
+          interstitialAd.load();
+          interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
+            interstitialAd.show();
+          });
+          interstitialAd.addAdEventListener(AdEventType.ERROR, (error) =>
+            console.error("Interstitial ad failed to load:", error)
+          );
+        }
+      };
+  
+      // Show the ad when the Results screen is displayed
+      showAdWithProbability();
+    }, []);
+
+
+
+ 
   useEffect(() => {
+
+
+      
     if (type === "weekly") {
       fetchWeeklyLeaderboard();
     } else if (type === "points") {
       fetchQuizLeaderboard();
     }
+
+    
   }, [type]);
+
+
+
+  
 
   const fetchWeeklyLeaderboard = async () => {
     try {
       const response = await fetch(
-        "https://cxn8d58dd1.execute-api.ap-south-1.amazonaws.com/prod?level=200"
+        "https://cxn8d58dd1.execute-api.ap-south-1.amazonaws.com/prod?level=300"
       );
 
       if (!response.ok) {
@@ -54,6 +96,8 @@ const Leaderboard = () => {
       setLoadingWeekly(false);
     }
   };
+
+  
 
   const fetchQuizLeaderboard = async () => {
     try {
@@ -94,11 +138,12 @@ const Leaderboard = () => {
     </View>
   );
 
+  
+
   return (
     <View style={styles.container}>
       {type === "weekly" && (
         <View>
-          <Text style={styles.title}>Weekly Leaderboard - Accumulated</Text>
           {loadingWeekly ? (
             <ActivityIndicator size="large" color="#0000ff" />
           ) : (
@@ -113,9 +158,6 @@ const Leaderboard = () => {
 
       {type === "points" && (
         <View>
-          <Text style={[styles.title, { marginTop: 20 }]}>
-            Points Leaderboard - Single Quiz
-          </Text>
           {loadingQuiz ? (
             <ActivityIndicator size="large" color="#0000ff" />
           ) : (
@@ -127,6 +169,18 @@ const Leaderboard = () => {
           )}
         </View>
       )}
+
+               {/* Ad Container */}
+               <View style={styles.adContainer}>
+        <BannerAd
+          unitId={androidAdmobBanner}
+          size={BannerAdSize.ANCHORED_ADAPTIVE_BANNER}
+          onAdFailedToLoad={(error) =>
+            console.error("Ad failed to load: ", error)
+          }
+        />
+      </View>
+
     </View>
   );
 };
@@ -134,7 +188,7 @@ const Leaderboard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#1a1a2e",
     padding: 20,
   },
   title: {
@@ -146,7 +200,7 @@ const styles = StyleSheet.create({
   playerContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#F0FFFF",
     borderRadius: 10,
     padding: 15,
     marginBottom: 10,
@@ -155,7 +209,7 @@ const styles = StyleSheet.create({
   rank: {
     fontSize: 15,
     fontWeight: "bold",
-    color: "#555555",
+    color: "#000",
     marginRight: 10,
   },
   playerDetails: {
@@ -166,12 +220,18 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 15,
     fontWeight: "bold",
-    color: "#333333",
+    color: "#000",
   },
   score: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#4CAF50",
+    color: "#000",
+  },
+  adContainer: {
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
+    alignItems: "center",
   },
 });
 

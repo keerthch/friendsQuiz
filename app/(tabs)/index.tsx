@@ -1,11 +1,33 @@
 import React from "react";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import Home from "../Home";
 import Quiz from "../Quiz";
 import Results from "../Results";
 import Multiplayer from "../Multiplayer";
-import Challenge from "../Challenge";
+import Challenge from "../Challenge"
 import Leaderboard from "../LeaderBoard";
+import {
+  useFonts,
+  Montserrat_100Thin,
+  Montserrat_200ExtraLight,
+  Montserrat_300Light,
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+  Montserrat_800ExtraBold,
+  Montserrat_900Black,
+} from "@expo-google-fonts/montserrat";
+import { TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // Import Ionicons for the back arrow
+
+
+
+import { View } from "react-native";
+
+
+
 
 type QuizType = 'single' | 'multiplayer' | 'quote';
 
@@ -21,7 +43,7 @@ type LevelQuestion = {
 };
 
 type RootStackParamList = {
-  Home: { unlockedLevel?: number };
+  Home: undefined;
   Leaderboard: undefined
   Quiz : { 
     level?: number; 
@@ -34,10 +56,29 @@ type RootStackParamList = {
   Results: { score: number; total: number; level?: number; points: number,  quizType: QuizType,  questions?: (QuoteQuestion | LevelQuestion)[]; };
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 export default function Layout() {
+  let [fontsLoaded] = useFonts({
+    Montserrat_100Thin,
+    Montserrat_200ExtraLight,
+    Montserrat_300Light,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
+    Montserrat_800ExtraBold,
+    Montserrat_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return <View></View>;
+  }
+
+
+  
   return (
+
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
@@ -71,31 +112,98 @@ export default function Layout() {
           headerShown: false, // Hide the header if you want a clean UI
         }}
       />
-       <Stack.Screen
-        name="Multiplayer"
-        component={Multiplayer}
-        options={{
-          headerShown: false, // Hide the header if you want a clean UI
-        }}
-      />
+   <Stack.Screen
+  name="Multiplayer"
+  component={Multiplayer}
+  options={({ navigation }) => ({
+    headerLeft: () => (
+      <TouchableOpacity
+        style={{ marginLeft: 10 }}
+        onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Home' }], // Reset stack and navigate to Home
+          })
+        }
+      >
+        <Ionicons name="arrow-back-outline" size={24} color="#000" />
+      </TouchableOpacity>
+    ),
+    title: "Multiplayer",
+    headerStyle: {
+      backgroundColor: '#f5f5f5',
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: '#333',
+    },
+    headerTitleAlign: "center",
+  })}
+/>
+
 
 <Stack.Screen
         name="Challenge"
         component={Challenge}
-        options={{
-          headerShown: false, // Hide the header if you want a clean UI
-        }}
+        options={({ navigation }) => ({
+          headerLeft: () => (
+            
+            <TouchableOpacity
+              style={{ marginLeft: 10 }}
+              onPress={() =>
+                navigation.reset({
+                  index: 0,
+                  routes: [{ name: 'Home' }], // Reset stack and navigate to Challenge
+                })
+              }
+            >
+              <Ionicons name="arrow-back-outline" size={24} color="#000" />
+            </TouchableOpacity>
+          ),
+          title: "Challenge",
+          headerStyle: {
+            backgroundColor: '#f5f5f5',
+          },
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            color: '#333',
+          },
+          headerTitleAlign: "center",
+        })}
       />
 
 
 <Stack.Screen
-        name="Leaderboard"
-        component={Leaderboard}
-        options={{
-          headerShown: false, // Hide the header if you want a clean UI
-        }}
-      />
+  name="Leaderboard"
+  component={Leaderboard}
+  options={({ navigation }) => ({
+    headerLeft: () => (
       
+      <TouchableOpacity
+        style={{ marginLeft: 10 }}
+        onPress={() =>
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'Challenge' }], // Reset stack and navigate to Challenge
+          })
+        }
+      >
+        <Ionicons name="arrow-back-outline" size={24} color="#000" />
+      </TouchableOpacity>
+    ),
+    title: "Leaderboard",
+    headerStyle: {
+      backgroundColor: '#f5f5f5',
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: '#333',
+    },
+    headerTitleAlign: "center",
+  })}
+/>
+
     </Stack.Navigator>
+
   );
 }
