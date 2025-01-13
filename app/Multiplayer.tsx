@@ -14,7 +14,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/7194037300";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/7116223675";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/7820028738";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -217,15 +218,7 @@ export default function Multiplayer({ navigation }: Props) {
           </TouchableOpacity>
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
-        <View style={styles.iconContainer}>
-        <TouchableOpacity
-          style={styles.circularButton1}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Ionicons name="home" size={20} color="#fff" />
-          <Text style={styles.buttonLabel}>Home</Text>
-        </TouchableOpacity>
-        </View>
+       
   
         <View style={styles.iconContainer}>
           <TouchableOpacity
