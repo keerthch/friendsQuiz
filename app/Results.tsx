@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   View,
   Text,
+  Alert,
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
@@ -15,13 +16,15 @@ import {
   AdEventType,
 } from "react-native-google-mobile-ads";
 import NAMES from "../constants/names";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/5682247727";
-const androidInterstitialAd = "ca-app-pub-8141886191578873/3681641040";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/5723304857";
 
 type QuizType = "single" | "multiplayer" | "quote";
 
 type RootStackParamList = {
+  Challenge: undefined;
   Home: undefined;
   Quiz: {
     level?: number;
@@ -109,7 +112,7 @@ export default function Results({ route, navigation }: Props) {
   useEffect(() => {
     const showAdWithProbability = () => {
       // 50% probability to show the ad
-      if (Math.random() < 0.6) {
+      if (Math.random() < 0.5) {
         interstitialAd.load();
         interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
           interstitialAd.show();
@@ -131,16 +134,80 @@ export default function Results({ route, navigation }: Props) {
     return styles.resultRed;
   };
 
+  const handleLevelCompletion = async () => {
+    if (level === 100) {
+      try {
+        console.log("handle submit socre for frirend");
+        const storedName = await AsyncStorage.getItem("name");
+        const storedEmail = await AsyncStorage.getItem("email");
+
+        if (!storedName || !storedEmail) {
+          throw new Error("Name or email not found in AsyncStorage.");
+        }
+
+        const payload = {
+          action: "weeklyScoreFriends",
+          name: storedName,
+          email: storedEmail,
+          score,
+        };
+
+  
+
+        const response = await fetch("https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to submit score: ${response.status}`);
+        }
+
+        const result = await response.json();
+        console.log(result)
+
+      } catch (error) {
+        console.error("Error submitting score:", error);
+        Alert.alert("Error", "Failed to submit your score. Please try again.");
+      }
+    }
+  };
+  handleLevelCompletion();
+
+
+// Load and show Interstitial Ad
+useEffect(() => {
+  const showAdWithProbability = () => {
+    // 50% probability to show the ad
+    if (Math.random() < 0.5) {
+      interstitialAd.load();
+      interstitialAd.addAdEventListener(AdEventType.LOADED, () => {
+        interstitialAd.show();
+      });
+      interstitialAd.addAdEventListener(AdEventType.ERROR, (error) =>
+        console.error("Interstitial ad failed to load:", error)
+      );
+    }
+  };
+
+  // Show the ad when the Results screen is displayed
+  showAdWithProbability();
+}, []);
+
   // Poll for winner only for multiplayer quizzes
   useEffect(() => {
     if (quizType !== "multiplayer" || !roomId) return;
     let interval: NodeJS.Timeout | null = null;
 
     const checkWinner = async () => {
+      console.log('checking winner',roomId, playerName, score)
       setLoading(true);
       try {
         const response = await fetch(
-          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod",
           {
             method: "POST",
             headers: {
@@ -156,6 +223,7 @@ export default function Results({ route, navigation }: Props) {
         );
 
         const data = await response.json();
+        console.log(data)
 
         if (data.success) {
           setPlayers(data.players || []);
@@ -238,6 +306,15 @@ export default function Results({ route, navigation }: Props) {
           <Ionicons name="home" size={28} color="#fff" />
           <Text style={styles.buttonLabel}>Home</Text>
         </TouchableOpacity>
+
+                 {/* Challenge Button */}
+  <TouchableOpacity
+    style={styles.circularButton}
+    onPress={() => navigation.navigate("Challenge")}
+  >
+    <Ionicons name="trophy-outline" size={28} color="#fff" />
+    <Text style={styles.buttonLabel}>Challenge</Text>
+  </TouchableOpacity>
 
  
        
@@ -389,8 +466,8 @@ const styles = StyleSheet.create({
   },
   
   circularButton: {
-    width: 60,
-    height: 60,
+    width: 75,
+    height: 75,
     borderRadius: 40,
     backgroundColor: "#4caf50",
     justifyContent: "center",

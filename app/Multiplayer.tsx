@@ -14,7 +14,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import { BannerAd, BannerAdSize } from "react-native-google-mobile-ads";
 
-const androidAdmobBanner = "ca-app-pub-8141886191578873/5682247727";
+const androidAdmobBanner = "ca-app-pub-8141886191578873/6310845835";
+const androidInterstitialAd = "ca-app-pub-8141886191578873/5723304857";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -67,7 +68,7 @@ export default function Multiplayer({ navigation }: Props) {
 
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -99,7 +100,7 @@ export default function Multiplayer({ navigation }: Props) {
   
     try {
       const response = await fetch(
-        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+        "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -137,7 +138,7 @@ export default function Multiplayer({ navigation }: Props) {
     const interval = setInterval(async () => {
       try {
         const response = await fetch(
-          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod/",
+          "https://ywy4ojcgcl.execute-api.ap-south-1.amazonaws.com/prod",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -218,13 +219,6 @@ export default function Multiplayer({ navigation }: Props) {
           <Text style={styles.iconLabel}>Create Room</Text>
         </View>
         <View style={styles.iconContainer}>
-        <TouchableOpacity
-          style={styles.circularButton1}
-          onPress={() => navigation.navigate("Home")}
-        >
-          <Ionicons name="home" size={20} color="#fff" />
-          <Text style={styles.buttonLabel}>Home</Text>
-        </TouchableOpacity>
         </View>
   
         <View style={styles.iconContainer}>
